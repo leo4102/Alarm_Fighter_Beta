@@ -8,7 +8,9 @@ public class Managers : MonoBehaviour
     public static Managers Instance {  get { Init();  return _instance; } }
 
     #region Content
+    BpmManager _bpm = new BpmManager();
 
+    public static BpmManager Bpm { get { return Instance._bpm; } }
     #endregion
 
     #region Core
