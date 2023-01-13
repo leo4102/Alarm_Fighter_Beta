@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
+    bool able = false;
+    double currentTime = 0;
     BoxArea _currentArea;
     BoxArea CurrentArea
     {
@@ -25,6 +26,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //currentTime += Time.deltaTime;
+        //double bit = (60 / Managers.Bpm.BPM) - 0.05;
+        //if (currentTime >= bit)
+        //{
+        //    able = true;
+        //    StartCoroutine("SetBehavior", 0.05f);
+        //    currentTime -= bit;
+        //}
+
+
+        if (!Managers.Bpm.Able)
+            return;
         if(Input.GetKeyDown(KeyCode.W))
         {
             MoveUp();
@@ -96,5 +109,13 @@ public class Player : MonoBehaviour
     void SetPosition(Transform moveTo)
     {
         transform.position = new Vector3(moveTo.position.x, moveTo.position.y, 0) ;
+    }
+
+    IEnumerator SetBehavior(float second)
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(second);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        able = false;
     }
 }

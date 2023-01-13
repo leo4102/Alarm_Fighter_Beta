@@ -1,0 +1,795 @@
+fileFormatVersion: 2
+guid: 9e358e2d6911ad241a5bf005017a53c3
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 230
+        width: 19
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bc782b4c52e64a4b9c05339f9e1dc7f
+      internalID: -578768991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 229
+        width: 23
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87658f7f6f3fc8f45aa5057f219da6f8
+      internalID: 1679187589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 236
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fcf01be6f8cce14d9c29eaba4f0fc17
+      internalID: 323563287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 248
+        width: 41
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72e43c78dc2153646a91a13279267927
+      internalID: -153759697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 248
+        width: 36
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afb273dfc66f9744b954389285d215e8
+      internalID: -149264671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 242
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30a9f893732c5d841a0154853ac51013
+      internalID: 863571998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 194
+        width: 44
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dccc613eb371dd41932226c8b148a83
+      internalID: -352440443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 195
+        width: 36
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5ff6e448cff8404f83cb258d847a8e5
+      internalID: 1987377128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 185
+        width: 25
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e41072c743341043bbd6e81d1510e18
+      internalID: -1598229441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 217
+        width: 45
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cf248d48b5e95441bcaf8a96939ca15
+      internalID: 1971094869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 185
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0fe440bdb895c24282fad7a30129397
+      internalID: -912531286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 187
+        width: 35
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 887949a5d08b0ed4086d5ab5e19a0508
+      internalID: -375346509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 148
+        width: 18
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe463dc84be79c945924a0ee2ca01349
+      internalID: -1521774620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_13
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 147
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c27642aee2ead7d4594fb4790070c784
+      internalID: 284338163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_14
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 154
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d7125971d3c68f48beeb70dfbe330ee
+      internalID: -376382559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_15
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 166
+        width: 41
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d31fe2fb1fce5c74a9b19ddf77a072d0
+      internalID: -1237247267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_16
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 166
+        width: 36
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0578798b3ae0de24b80a8c221039bc92
+      internalID: 709070445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_17
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 161
+        width: 42
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be82fa6cc7440ff47989bf021d870000
+      internalID: 1390711985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_18
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 112
+        width: 45
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7de944a867eabe41ae24e6d800b022d
+      internalID: -1190031286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_19
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 112
+        width: 36
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb5167e586d66bf4fb43be4cf4aa509f
+      internalID: 323695471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_20
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 103
+        width: 25
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c5dc96bcac990c468ed73559d9c6d03
+      internalID: 629064282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_21
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 136
+        width: 45
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60fa5e92308e13943af00386f0799b87
+      internalID: 237148749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_22
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 103
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19e0eba618ac61541a0bdc2015d490f9
+      internalID: -1045734536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_23
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 105
+        width: 34
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef9d63319c424f4294be7b061c1449f
+      internalID: 1332554738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_24
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 90
+        width: 35
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bbc0a73857436c45a3d094768e064fa
+      internalID: -273932942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_25
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 91
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6706c76a8a2b24f4f8f2cf3091e65640
+      internalID: 1664756740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_26
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 19
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0df33a0bbcf9bc34c991a73cf253cb63
+      internalID: 741243912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_27
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 16
+        width: 70
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abbdce4dd71d1e94a97fc47d6e2962b0
+      internalID: 459108451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_28
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 18
+        width: 29
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a1a5cbcba95a404e9752aa3e761e3fd
+      internalID: 625412461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_29
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 5
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfe143be0a5c20a4abc8b6cab1613d10
+      internalID: 751818005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_7: 1987377128
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_21: 237148749
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_20: 629064282
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_8: -1598229441
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_18: -1190031286
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_23: 1332554738
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_24: -273932942
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_17: 1390711985
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_29: 751818005
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_28: 625412461
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_6: -352440443
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_25: 1664756740
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_16: 709070445
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_15: -1237247267
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_22: -1045734536
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_5: 863571998
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_0: -578768991
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_13: 284338163
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_1: 1679187589
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_4: -149264671
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_12: -1521774620
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_27: 459108451
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_2: 323563287
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_9: 1971094869
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_19: 323695471
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_3: -153759697
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_26: 741243912
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_10: -912531286
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_14: -376382559
+      PlayStation_-_Tales_of_Eternia_Tales_of_Destiny_II_-_Eternal_Sword-removebg-preview_11: -375346509
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
