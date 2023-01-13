@@ -16,15 +16,18 @@ public class Managers : MonoBehaviour
     #region Core
     PoolManager _pool = new PoolManager();
     ResourceManager _resource = new ResourceManager();
+    ScenceManagerEx _scene = new ScenceManagerEx();
 
     public static PoolManager Pool { get { return Instance._pool; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
+    public static ScenceManagerEx SceneManagerEx { get { return Instance._scene; } }
 
     #endregion
 
     void Start()
     {
         Init();
+        
     }
 
     void Update()
@@ -47,6 +50,7 @@ public class Managers : MonoBehaviour
 
             //Manager Init
             _instance._pool.Init();
+            _instance._bpm.Init();
         }
     }
 
