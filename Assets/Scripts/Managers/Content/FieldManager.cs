@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class FieldManager
 {
-    private Field PlayerField;
-    private Field MonsterField;
+    private Field field;
 
-    public void setPlayerField(Field field)
-    {
-        PlayerField = field;
-    }
-    public void setMonsterField(Field feild)
-    {
-        MonsterField = feild;
-    }
+    public void setField(Field field) { this.field = field; }
 }

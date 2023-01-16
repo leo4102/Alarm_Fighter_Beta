@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Field : MonoBehaviour
 {
     List<GameObject> gridArray = new List<GameObject>();//ÀüÃ¼ field data
+
     List<GameObject> playergridArray = new List<GameObject>();//Player field data
     List<GameObject> monstergridArray = new List<GameObject>();//Monster field data
 
