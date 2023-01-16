@@ -5,12 +5,13 @@ using UnityEngine;
 public class Managers : MonoBehaviour
 {
     static Managers _instance;
-    public static Managers Instance {  get { Init();  return _instance; } }
+    public static Managers Instance { get { Init(); return _instance; } }
 
     #region Content
     BpmManager _bpm = new BpmManager();
-
+    FieldManager _field = new FieldManager();
     public static BpmManager Bpm { get { return Instance._bpm; } }
+    public static FieldManager Field { get { return Instance._field; } }
     #endregion
 
     #region Core
@@ -27,23 +28,23 @@ public class Managers : MonoBehaviour
     void Start()
     {
         Init();
-        
+
     }
 
     void Update()
     {
-        
+
     }
     static void Init()
     {
-        if(_instance == null)
+        if (_instance == null)
         {
             GameObject go = GameObject.Find("@Managers");
-            if(go == null)
+            if (go == null)
             {
                 go = new GameObject() { name = "@Managers" };
                 go.AddComponent<Managers>();
-                
+
             }
             DontDestroyOnLoad(go);
             _instance = go.GetComponent<Managers>();

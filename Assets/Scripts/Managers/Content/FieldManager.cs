@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class FieldManager
 {
-    Field PlayerField;
-    Field MonsterField;
+    private Field PlayerField;
+    private Field MonsterField;
 
-
-    //public bool IsLine;
-
-    public void SetField(Field field)
+    public void setPlayerField(Field field)
     {
         PlayerField = field;
     }
-    
-
+    public void setMonsterField(Field feild)
+    {
+        MonsterField = feild;
+    }
 }
