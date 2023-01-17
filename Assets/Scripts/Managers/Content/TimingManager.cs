@@ -1,18 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimingManager : MonoBehaviour
+public class TimingManager 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Action BehaveAction;
+    double currentTime = 0;
 
-    // Update is called once per frame
-    void Update()
+    public void UpdatePerBit()
     {
-        
+        currentTime += Time.deltaTime;
+        if(currentTime >= 60d /Managers.Bpm.BPM)
+        {
+            BehaveAction.Invoke();
+            currentTime -= 60d / Managers.Bpm.BPM;
+        }
     }
 }
