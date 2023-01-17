@@ -10,18 +10,26 @@ public class Managers : MonoBehaviour
     #region Content
     BpmManager _bpm = new BpmManager();
     FieldManager _field = new FieldManager();
+    GameManagerEx _game = new GameManagerEx();
+    TimingManager _timing = new TimingManager();
     public static BpmManager Bpm { get { return Instance._bpm; } }
     public static FieldManager Field { get { return Instance._field; } }
+    public static GameManagerEx Game { get { return Instance._game; } }
+    public static TimingManager Timing { get { return Instance._timing; } }
     #endregion
 
     #region Core
+    CollisionManager _collision = new CollisionManager();
     PoolManager _pool = new PoolManager();
     ResourceManager _resource = new ResourceManager();
     ScenceManagerEx _scene = new ScenceManagerEx();
+    SoundManager _sound = new SoundManager();
 
+    public static CollisionManager Collision { get { return Instance._collision; } }
     public static PoolManager Pool { get { return Instance._pool; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static ScenceManagerEx SceneManagerEx { get { return Instance._scene; } }
+    public static SoundManager Sound { get { return Instance._sound; } }
 
     #endregion
 
