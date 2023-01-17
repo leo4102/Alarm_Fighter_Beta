@@ -16,4 +16,13 @@ public class Define
         Left,
         Right,
     }
+    public enum State
+    {
+        IDLE,
+        ATTACKREADY,
+        ATTACK,
+        HIT,
+        MOVE
+    }
+
 }
