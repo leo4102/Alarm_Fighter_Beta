@@ -13,17 +13,14 @@ public abstract class Field : MonoBehaviour
     {
         if (type == 1) // player 
         {
-            Debug.Log("playerArray return");
             return playergridArray;
         }
         else if (type == 2) // monster
         {
-            Debug.Log("MonsterArray return");
             return monstergridArray;
         }
         else
         {
-            Debug.Log("gridArray_null");
             return null;
         }
     }
@@ -95,8 +92,9 @@ public abstract class Field : MonoBehaviour
     {
         for (int i = 0; i < gridArray.Count; i++)//Basic Player Field 
         {
-            if (i < 6) playergridArray.Add(gridArray[i]);
-            if (i > 6) monstergridArray.Add(gridArray[i]);
+            // 분할하는 부분 나누기 (원래는 6을 기준으로 나뉨) (1.17 재윤 수정)
+            if (i <= gridArray.Count - 6) playergridArray.Add(gridArray[i]);
+            else monstergridArray.Add(gridArray[i]);
 
         }
 
