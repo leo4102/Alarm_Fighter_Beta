@@ -6,6 +6,8 @@ public class PlayerVer2 : FieldObject
 {
     Define.State nextBehavior = Define.State.IDLE;
     Define.PlayerMove nextDirection = Define.PlayerMove.Right;
+    int maxHp = 3;
+    int currentHp = 3;
     private void Start()
     {
         type = 1;
@@ -67,5 +69,9 @@ public class PlayerVer2 : FieldObject
         }
         else if (Input.GetKeyDown(KeyCode.K))
             nextBehavior = Define.State.ATTACK;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        currentHp -= 1;
     }
 }

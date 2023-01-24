@@ -7,7 +7,8 @@ public class MonsterVer2 : FieldObject
     Define.State nextBehavior = Define.State.IDLE;
     //to do : MonsterMove or MoveDirection
     Define.PlayerMove nextDirection = Define.PlayerMove.Right;
-
+    MonsterPattern attackPattern = new LinePattern();
+    int maxHp = 3;
     private void Start()
     {
         type = 2;
@@ -36,7 +37,7 @@ public class MonsterVer2 : FieldObject
                 break;
             case Define.State.ATTACK:
                 anim.Play("Attack");
-                Attack();
+                updateAttack();
                 break;
             case Define.State.MOVE:
                 anim.Play("Move");
@@ -77,13 +78,24 @@ public class MonsterVer2 : FieldObject
     }
     void updateAtttackReady()
     {
-
+        AttackReady();
         nextBehavior = Define.State.ATTACK;
+    }
+    void updateAttack()
+    {
+        Attack();
+        nextBehavior = Define.State.IDLE;
     }
     protected override void Attack()
     {
-        nextBehavior = Define.State.IDLE;
-        
+        int[] pattern = attackPattern.calculateIndex(currentInd);
+        Managers.Field.Attack(pattern);
+    }
+    void AttackReady()
+    {
+        int[] pattern = attackPattern.calculateIndex(currentInd);
+        Managers.Field.WarningAttack(pattern);
+
     }
 
 }
