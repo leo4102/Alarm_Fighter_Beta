@@ -41,7 +41,7 @@ public class Managers : MonoBehaviour
 
     void Update()
     {
-
+        Timing.UpdatePerBit();
     }
     static void Init()
     {

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BpmManager
 {
     
-    int bpm = 80;
+    int bpm = 120;
     
 
     public int BPM {
