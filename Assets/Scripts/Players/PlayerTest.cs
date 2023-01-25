@@ -18,7 +18,7 @@ public class PlayerTest : FieldObject
         objectField = Managers.Field.getField();
         objectList = objectField.getGridArray(type);
         
-        currentInd = objectList.Count / 2 - 1; // 이 초기화의 위치는 Field의 Width가 어떻든, 가운데에 오게할 수 있음 (1.18 재윤 추가)
+        currentInd = objectList.Count / 2; // 이 초기화의 위치는 Field의 Width가 어떻든, 가운데에 오게할 수 있음 (1.18 재윤 추가)
         transform.position = objectList[currentInd].transform.position;
     }
 
@@ -41,8 +41,6 @@ public class PlayerTest : FieldObject
                 mayGo(Define.PlayerMove.Up);
             }
         }
-           
-           
         else if (Input.GetKeyDown(KeyCode.A))
         {
             //Managers.Timing.CheckTiming();
@@ -52,9 +50,6 @@ public class PlayerTest : FieldObject
                 mayGo(Define.PlayerMove.Left);
             }
         }
-        
-           
-        
         else if (Input.GetKeyDown(KeyCode.S))
         {
             //Managers.Timing.CheckTiming();
@@ -65,9 +60,6 @@ public class PlayerTest : FieldObject
             }
 
         }
-
-           
-           
         else if (Input.GetKeyDown(KeyCode.D))
         {
             //Managers.Timing.CheckTiming();
@@ -77,9 +69,6 @@ public class PlayerTest : FieldObject
                 mayGo(Define.PlayerMove.Right);
             }
         }
-
-            
-        
         else if (Input.GetKeyDown(KeyCode.K))
         {
             //Managers.Timing.CheckTiming();

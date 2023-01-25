@@ -97,7 +97,7 @@ public abstract class Field : MonoBehaviour
         for (int i = 0; i < gridArray.Count; i++)//Basic Player Field 
         {
             // 분할하는 부분 나누기 (원래는 6을 기준으로 나뉨) (1.17 재윤 수정)
-            if (i <= gridArray.Count - 6) playergridArray.Add(gridArray[i]);
+            if (i < gridArray.Count - 6) playergridArray.Add(gridArray[i]);
             else monstergridArray.Add(gridArray[i]);
 
         }

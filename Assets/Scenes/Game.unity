@@ -407,6 +407,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteList: []
+  centerFlame: {fileID: 1899820535}
+  timingRect:
+  - {fileID: 2131681049}
+  - {fileID: 1405310117}
+  - {fileID: 1067188115}
+  - {fileID: 969545471}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,7 +1207,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1858867907}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e06a38017b780a4586abbdf46d7a761, type: 3}
+  m_Script: {fileID: 11500000, guid: c01aeb268281d17498d9f56938e5698d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1899820534

@@ -6,7 +6,6 @@ using UnityEngine;
 public class TimingManager :MonoBehaviour
 {
     //GameObject _root;
-  
     // 생성되는 흰 note를 넣을 List
     public List<GameObject> noteList = new List<GameObject>();
 
@@ -76,13 +75,10 @@ public class TimingManager :MonoBehaviour
     }
 
 
-
-    //public Action BehaveAction;
-    //double currentTime = 0;
-
- 
+    public Action BehaveAction;
+    double currentTime = 0;
     
-    /*public void UpdatePerBit()
+    public void UpdatePerBit()
     {
         currentTime += Time.deltaTime;
         if(currentTime >= 60d /Managers.Bpm.BPM)
@@ -91,5 +87,5 @@ public class TimingManager :MonoBehaviour
             Debug.Log("work!");
             currentTime -= 60d / Managers.Bpm.BPM;
         }
-    }*/
+    }
 }

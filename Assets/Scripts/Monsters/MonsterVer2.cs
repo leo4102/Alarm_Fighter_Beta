@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MonsterVer2 : FieldObject
 {
-    Define.State nextBehavior = Define.State.IDLE;
+    //idle 보류 (1.25)
+    Define.State nextBehavior = Define.State.MOVE;
     //to do : MonsterMove or MoveDirection
     Define.PlayerMove nextDirection = Define.PlayerMove.Right;
     MonsterPattern attackPattern = new LinePattern();
@@ -27,10 +28,12 @@ public class MonsterVer2 : FieldObject
         Animator anim = GetComponent<Animator>();
         switch(nextBehavior)
         {
+            // idle 보류
+            /*
             case Define.State.IDLE:
                 anim.Play("Idle");
                 updateIdle();
-                break;
+                break;*/
             case Define.State.ATTACKREADY:
                 anim.Play("AttackReady");
                 updateAtttackReady();
@@ -84,7 +87,9 @@ public class MonsterVer2 : FieldObject
     void updateAttack()
     {
         Attack();
-        nextBehavior = Define.State.IDLE;
+        nextBehavior = Define.State.MOVE;
+        //nextBehavior = Define.State.IDLE;
+        //idle 보류(1.25)
     }
     protected override void Attack()
     {
