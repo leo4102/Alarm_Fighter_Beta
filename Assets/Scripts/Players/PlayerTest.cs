@@ -5,10 +5,14 @@ using UnityEngine;
 // Issue (1.17) 처음 시작할 때 키보드 한번을 생략하고 시작함
 public class PlayerTest : FieldObject
 {
-    
+
+    TimingManager timingManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        timingManager=FindObjectOfType<TimingManager>();
+
         // type을 초기화하고 objectField를 받아온 뒤, objectList에 PlayerField를 받아온다.
         type = 1;
         objectField = Managers.Field.getField();
@@ -26,18 +30,68 @@ public class PlayerTest : FieldObject
 
     protected override void BitBehave()
     {
-        if (!Managers.Bpm.Able)
-            return;
+       /* if (!Managers.Bpm.Able)
+            return;*/
         if (Input.GetKeyDown(KeyCode.W))
-            mayGo(Define.PlayerMove.Up);
+        {
+            //Managers.Timing.CheckTiming();
+            //timingManager.CheckTiming();
+            if (timingManager.CheckTiming())
+            {
+                mayGo(Define.PlayerMove.Up);
+            }
+        }
+           
+           
         else if (Input.GetKeyDown(KeyCode.A))
-            mayGo(Define.PlayerMove.Left);
+        {
+            //Managers.Timing.CheckTiming();
+            //timingManager.CheckTiming();
+            if (timingManager.CheckTiming())
+            {
+                mayGo(Define.PlayerMove.Left);
+            }
+        }
+        
+           
+        
         else if (Input.GetKeyDown(KeyCode.S))
-            mayGo(Define.PlayerMove.Down);
+        {
+            //Managers.Timing.CheckTiming();
+            //timingManager.CheckTiming();
+            if (timingManager.CheckTiming())
+            {
+                mayGo(Define.PlayerMove.Down);
+            }
+
+        }
+
+           
+           
         else if (Input.GetKeyDown(KeyCode.D))
-            mayGo(Define.PlayerMove.Right);
+        {
+            //Managers.Timing.CheckTiming();
+            //timingManager.CheckTiming();
+            if (timingManager.CheckTiming())
+            {
+                mayGo(Define.PlayerMove.Right);
+            }
+        }
+
+            
+        
         else if (Input.GetKeyDown(KeyCode.K))
-            Attack();
+        {
+            //Managers.Timing.CheckTiming();
+            //timingManager.CheckTiming();
+            if (timingManager.CheckTiming())
+            {
+                Attack();
+            }
+        }
+        
+            
+        
     }
 
     protected override void Attack()

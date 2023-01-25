@@ -11,11 +11,11 @@ public class Managers : MonoBehaviour
     BpmManager _bpm = new BpmManager();
     FieldManager _field = new FieldManager();
     GameManagerEx _game = new GameManagerEx();
-    TimingManager _timing = new TimingManager();
+    //TimingManager _timing = new TimingManager();
     public static BpmManager Bpm { get { return Instance._bpm; } }
     public static FieldManager Field { get { return Instance._field; } }
     public static GameManagerEx Game { get { return Instance._game; } }
-    public static TimingManager Timing { get { return Instance._timing; } }
+    //public static TimingManager Timing { get { return Instance._timing; } }
     #endregion
 
     #region Core
@@ -60,6 +60,7 @@ public class Managers : MonoBehaviour
             //Manager Init
             _instance._pool.Init();
             _instance._bpm.Init();
+            //_instance._timing.Init();
         }
     }
 
