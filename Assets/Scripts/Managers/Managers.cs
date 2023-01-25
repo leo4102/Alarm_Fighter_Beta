@@ -60,6 +60,7 @@ public class Managers : MonoBehaviour
             //Manager Init
             _instance._pool.Init();
             _instance._bpm.Init();
+            _instance._timing.Init();
         }
     }
 

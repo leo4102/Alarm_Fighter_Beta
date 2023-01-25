@@ -5,7 +5,9 @@ using UnityEngine;
 // Issue (1.17) 처음 시작할 때 키보드 한번을 생략하고 시작함
 public class PlayerTest : FieldObject
 {
-    
+
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,18 +28,63 @@ public class PlayerTest : FieldObject
 
     protected override void BitBehave()
     {
-        if (!Managers.Bpm.Able)
-            return;
+       /* if (!Managers.Bpm.Able)
+            return;*/
         if (Input.GetKeyDown(KeyCode.W))
-            mayGo(Define.PlayerMove.Up);
+        {
+            Managers.Timing.CheckTiming();
+            if (Managers.Bpm.Able)
+            {
+                mayGo(Define.PlayerMove.Up);
+            }
+        }
+           
+           
         else if (Input.GetKeyDown(KeyCode.A))
-            mayGo(Define.PlayerMove.Left);
+        {
+            Managers.Timing.CheckTiming();
+            if (Managers.Bpm.Able)
+            {
+                mayGo(Define.PlayerMove.Left);
+            }
+        }
+        
+           
+        
         else if (Input.GetKeyDown(KeyCode.S))
-            mayGo(Define.PlayerMove.Down);
+        {
+            Managers.Timing.CheckTiming();
+            if (Managers.Bpm.Able)
+            {
+                mayGo(Define.PlayerMove.Down);
+            }
+
+        }
+
+           
+           
         else if (Input.GetKeyDown(KeyCode.D))
-            mayGo(Define.PlayerMove.Right);
+        {
+            Managers.Timing.CheckTiming();
+            if (Managers.Bpm.Able)
+            {
+                mayGo(Define.PlayerMove.Right);
+            }
+        }
+
+            
+        
         else if (Input.GetKeyDown(KeyCode.K))
-            Attack();
+        {
+            Managers.Timing.CheckTiming();
+            if (Managers.Bpm.Able)
+            {
+                Attack();
+            }
+        }
+        
+            
+        
     }
 
     protected override void Attack()
