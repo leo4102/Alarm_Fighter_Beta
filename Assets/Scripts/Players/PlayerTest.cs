@@ -6,11 +6,13 @@ using UnityEngine;
 public class PlayerTest : FieldObject
 {
 
-   
+    TimingManager timingManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        timingManager=FindObjectOfType<TimingManager>();
+
         // type을 초기화하고 objectField를 받아온 뒤, objectList에 PlayerField를 받아온다.
         type = 1;
         objectField = Managers.Field.getField();
@@ -32,8 +34,9 @@ public class PlayerTest : FieldObject
             return;*/
         if (Input.GetKeyDown(KeyCode.W))
         {
-            Managers.Timing.CheckTiming();
-            if (Managers.Bpm.Able)
+            //Managers.Timing.CheckTiming();
+            //timingManager.CheckTiming();
+            if (timingManager.CheckTiming())
             {
                 mayGo(Define.PlayerMove.Up);
             }
@@ -42,8 +45,9 @@ public class PlayerTest : FieldObject
            
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            Managers.Timing.CheckTiming();
-            if (Managers.Bpm.Able)
+            //Managers.Timing.CheckTiming();
+            //timingManager.CheckTiming();
+            if (timingManager.CheckTiming())
             {
                 mayGo(Define.PlayerMove.Left);
             }
@@ -53,8 +57,9 @@ public class PlayerTest : FieldObject
         
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            Managers.Timing.CheckTiming();
-            if (Managers.Bpm.Able)
+            //Managers.Timing.CheckTiming();
+            //timingManager.CheckTiming();
+            if (timingManager.CheckTiming())
             {
                 mayGo(Define.PlayerMove.Down);
             }
@@ -65,8 +70,9 @@ public class PlayerTest : FieldObject
            
         else if (Input.GetKeyDown(KeyCode.D))
         {
-            Managers.Timing.CheckTiming();
-            if (Managers.Bpm.Able)
+            //Managers.Timing.CheckTiming();
+            //timingManager.CheckTiming();
+            if (timingManager.CheckTiming())
             {
                 mayGo(Define.PlayerMove.Right);
             }
@@ -76,8 +82,9 @@ public class PlayerTest : FieldObject
         
         else if (Input.GetKeyDown(KeyCode.K))
         {
-            Managers.Timing.CheckTiming();
-            if (Managers.Bpm.Able)
+            //Managers.Timing.CheckTiming();
+            //timingManager.CheckTiming();
+            if (timingManager.CheckTiming())
             {
                 Attack();
             }

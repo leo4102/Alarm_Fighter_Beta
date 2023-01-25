@@ -13,7 +13,8 @@ public class NoteManager : MonoBehaviour
     
     void Start()
     {
-        timingManager = Managers.Timing;
+        //timingManager = Managers.Timing;
+        timingManager = FindObjectOfType<TimingManager>();
     }
     
 
