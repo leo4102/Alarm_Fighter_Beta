@@ -19,6 +19,10 @@ public abstract class Field : MonoBehaviour
         {
             return monstergridArray;
         }
+        else if(type ==3)
+        {
+            return gridArray;
+        }
         else
         {
             return null;
@@ -98,6 +102,31 @@ public abstract class Field : MonoBehaviour
 
         }
 
+    }
+
+    public void WarningAttack(int[] indexs)
+    {
+        for(int i=0;i<indexs.Length;i++)
+        {
+            SpriteRenderer temp = gridArray[indexs[i]].GetComponent<SpriteRenderer>();
+            temp.color = Color.red;
+        }
+    }
+    public void Damage(int[] indexs)
+    {
+        for (int i = 0; i < indexs.Length; i++)
+        {
+            GameObject temp = gridArray[indexs[i]];
+            SpriteRenderer sr = temp.GetComponent<SpriteRenderer>();
+            StartCoroutine("ActiveDamageField", temp);
+            sr.color = new Color(1, 1, 1, 0);
+        }
+    }
+    IEnumerator ActiveDamageField(GameObject go)
+    {
+        PolygonCollider2D poly = go.GetComponent<PolygonCollider2D>();
+        poly.enabled = true;
+        yield return new WaitForEndOfFrame();
     }
     void Awake()
     {
