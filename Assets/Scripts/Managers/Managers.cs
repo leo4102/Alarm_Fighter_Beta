@@ -11,24 +11,24 @@ public class Managers : MonoBehaviour
     BpmManager _bpm = new BpmManager();
     FieldManager _field = new FieldManager();
     GameManagerEx _game = new GameManagerEx();
-    //TimingManager _timing = new TimingManager();
+    TimingManager _timing = new TimingManager();
     public static BpmManager Bpm { get { return Instance._bpm; } }
     public static FieldManager Field { get { return Instance._field; } }
     public static GameManagerEx Game { get { return Instance._game; } }
-    //public static TimingManager Timing { get { return Instance._timing; } }
+    public static TimingManager Timing { get { return Instance._timing; } }
     #endregion
 
     #region Core
     CollisionManager _collision = new CollisionManager();
     PoolManager _pool = new PoolManager();
     ResourceManager _resource = new ResourceManager();
-    ScenceManagerEx _scene = new ScenceManagerEx();
+    SceneManagerEx _scene = new SceneManagerEx();
     SoundManager _sound = new SoundManager();
 
     public static CollisionManager Collision { get { return Instance._collision; } }
     public static PoolManager Pool { get { return Instance._pool; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
-    public static ScenceManagerEx SceneManagerEx { get { return Instance._scene; } }
+    public static SceneManagerEx Scene { get { return Instance._scene; } }
     public static SoundManager Sound { get { return Instance._sound; } }
 
     #endregion
@@ -41,7 +41,7 @@ public class Managers : MonoBehaviour
 
     void Update()
     {
-        Timing.UpdatePerBit();
+        
     }
     static void Init()
     {
@@ -60,6 +60,7 @@ public class Managers : MonoBehaviour
             //Manager Init
             _instance._pool.Init();
             _instance._bpm.Init();
+            _instance._sound.Init();
             //_instance._timing.Init();
         }
     }
@@ -68,5 +69,8 @@ public class Managers : MonoBehaviour
     {
         //Manager Clear
         Pool.Clear();
+        Sound.Clear();
+        Scene.Clear();
+        Timing.Clear();
     }
 }

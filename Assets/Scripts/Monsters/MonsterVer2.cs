@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class MonsterVer2 : FieldObject
 {
-    Define.State nextBehavior = Define.State.IDLE;
+    //idle 보류 (1.25)
+    Define.State nextBehavior = Define.State.MOVE;
     //to do : MonsterMove or MoveDirection
     Define.PlayerMove nextDirection = Define.PlayerMove.Right;
     MonsterPattern attackPattern = new LinePattern();
-    int maxHp = 3;
+    int maxHp = 1;
+    int currentHp;
     private void Start()
     {
+        currentHp = maxHp;
+
         type = 2;
         objectField = Managers.Field.getField();
         objectList = objectField.getGridArray(type);
@@ -27,10 +31,12 @@ public class MonsterVer2 : FieldObject
         Animator anim = GetComponent<Animator>();
         switch(nextBehavior)
         {
+            // idle 보류
+            /*
             case Define.State.IDLE:
                 anim.Play("Idle");
                 updateIdle();
-                break;
+                break;*/
             case Define.State.ATTACKREADY:
                 anim.Play("AttackReady");
                 updateAtttackReady();
@@ -84,7 +90,9 @@ public class MonsterVer2 : FieldObject
     void updateAttack()
     {
         Attack();
-        nextBehavior = Define.State.IDLE;
+        nextBehavior = Define.State.MOVE;
+        //nextBehavior = Define.State.IDLE;
+        //idle 보류(1.25)
     }
     protected override void Attack()
     {
@@ -98,4 +106,23 @@ public class MonsterVer2 : FieldObject
 
     }
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        currentHp -= 1;
+        GetComponent<Animator>().Play("Hit");
+
+        Debug.Log("Monster Hit");
+        if (currentHp <= 0)
+            Die();
+    }
+    void Die()
+    {
+        Debug.Log("MonsterDIe!");
+        Managers.Game.MinusMonsterNum();
+        Managers.Timing.BehaveAction -= BitBehave;
+        GameScene gamescene=(GameScene)Managers.Scene.CurrentScene;
+        gamescene.NextMonsterIndex();
+        Destroy(gameObject);
+    }
 }

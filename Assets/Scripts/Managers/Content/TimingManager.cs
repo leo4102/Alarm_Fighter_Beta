@@ -6,7 +6,6 @@ using UnityEngine;
 public class TimingManager :MonoBehaviour
 {
     //GameObject _root;
-  
     // 생성되는 흰 note를 넣을 List
     public List<GameObject> noteList = new List<GameObject>();
 
@@ -64,7 +63,7 @@ public class TimingManager :MonoBehaviour
                     Managers.Bpm.Able = true;//삽입함
                     noteList[i].GetComponent<Note>().HideNote();//Note 삭제 대신에 Note의 이미지만 비활성화//이유: BGM이 안 나옴
                     noteList.RemoveAt(i);
-                    Debug.Log("HIT" + j);
+                    //Debug.Log("HIT" + j);
                     return true;
                 }
             }
@@ -76,20 +75,22 @@ public class TimingManager :MonoBehaviour
     }
 
 
-
-    //public Action BehaveAction;
-    //double currentTime = 0;
-
- 
+    public Action BehaveAction;
+    double currentTime = 0;
     
-    /*public void UpdatePerBit()
+    public void UpdatePerBit()
     {
         currentTime += Time.deltaTime;
         if(currentTime >= 60d /Managers.Bpm.BPM)
         {
-            BehaveAction.Invoke();
+            if(BehaveAction != null)
+                BehaveAction.Invoke();
             Debug.Log("work!");
             currentTime -= 60d / Managers.Bpm.BPM;
         }
-    }*/
+    }
+    public void Clear()
+    {
+        noteList = null; timingRange = null; timingRange = null;
+    }
 }

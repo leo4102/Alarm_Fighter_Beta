@@ -24,7 +24,13 @@ public class Define
         ATTACKREADY,
         ATTACK,
         HIT,
-        MOVE
+        MOVE,
     }
 
+    public enum Sound
+    {
+        Bgm,
+        Effect,
+        MaxCount,
+    }
 }

@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public abstract class BaseScene : MonoBehaviour
 {
+    [SerializeField]
+    protected string soundBgmName;
     private void Awake()
     {
         Init();
@@ -17,8 +19,9 @@ public abstract class BaseScene : MonoBehaviour
             Managers.Resource.Instantiate("UI/EventSystem").name = "@EventSystem";
         }
     }
-
     public abstract void Clear();
-
-
+    protected void SoundBgmPlay()
+    {
+        Managers.Sound.Play(soundBgmName, Define.Sound.Bgm);
+    }
 }
