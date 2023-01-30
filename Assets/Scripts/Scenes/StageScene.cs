@@ -8,16 +8,9 @@ public class StageScene : BaseScene
     {
 
     }
-
-    // Start is called before the first frame update
-    void Start()
+    protected override void Init()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.Init();
+        SoundBgmPlay();
     }
 }

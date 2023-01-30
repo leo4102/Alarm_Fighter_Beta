@@ -5,23 +5,14 @@ using UnityEngine;
 
 public class CenterFlame : MonoBehaviour
 {
-    AudioSource myAudio;
     bool isPlaying = false;
-
-    void Start()
-    {
-        myAudio = GetComponent<AudioSource>();
-        Debug.Log("myAudio Start");
-    }
-
-  
+ 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!isPlaying)
         {
             if (collision.CompareTag("Note2"))
             {
-                myAudio.Play();
                 isPlaying = true;
             }
 

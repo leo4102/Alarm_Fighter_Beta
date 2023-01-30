@@ -28,15 +28,14 @@ public class PlayerTest : FieldObject
     {
         currentHp = maxHp;
 
-
-        timingManager=FindObjectOfType<TimingManager>();
+        timingManager = FindObjectOfType<TimingManager>();
         hpBar = Util.FindChild<HpBar>(gameObject, null, true);
 
         // type을 초기화하고 objectField를 받아온 뒤, objectList에 PlayerField를 받아온다.
         type = 1;
         objectField = Managers.Field.getField();
         objectList = objectField.getGridArray(type);
-        
+
         currentInd = objectList.Count / 2; // 이 초기화의 위치는 Field의 Width가 어떻든, 가운데에 오게할 수 있음 (1.18 재윤 추가)
         transform.position = objectList[currentInd].transform.position;
     }
@@ -49,8 +48,6 @@ public class PlayerTest : FieldObject
 
     protected override void BitBehave()
     {
-       /* if (!Managers.Bpm.Able)
-            return;*/
         if (Input.GetKeyDown(KeyCode.W) && timingManager.CheckTiming()) { mayGo(Define.PlayerMove.Up); Managers.Sound.Play("Click"); }
         else if (Input.GetKeyDown(KeyCode.A) && timingManager.CheckTiming()) { mayGo(Define.PlayerMove.Left); Managers.Sound.Play("Click"); }
         else if (Input.GetKeyDown(KeyCode.S) && timingManager.CheckTiming()) { mayGo(Define.PlayerMove.Down); Managers.Sound.Play("Click"); }
@@ -72,21 +69,23 @@ public class PlayerTest : FieldObject
     protected override void Hit()
     {
         Debug.Log("Hit!!!!");
-        GetComponent<Animator>().Play("Hit");
+        GetComponent<Animator>().SetTrigger("isHit");
         CurrentHp -= 1;
         Managers.Sound.Play("Hit");
         if (CurrentHp <= 0)
             Die();
-            
+
     }
     void Die()
     {
         Debug.Log("Player Die!!");
         Managers.Game.GameOver();
+        Managers.Sound.Play("Die");
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Hit();
     }
-    
+
 }

@@ -744,6 +744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d002838f2be864e4ab93e111ebbd4699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BgmName: BGM
 --- !u!224 &1184196705 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8496321445326058179, guid: 2f3a31f5673a3a844a50fd9d1e0a2b26, type: 3}
@@ -1144,7 +1145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8496321445326058179, guid: 2f3a31f5673a3a844a50fd9d1e0a2b26, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.5374069
+      value: -0.5373993
       objectReference: {fileID: 0}
     - target: {fileID: 8496321445326058179, guid: 2f3a31f5673a3a844a50fd9d1e0a2b26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

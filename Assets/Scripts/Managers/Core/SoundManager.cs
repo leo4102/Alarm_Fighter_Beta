@@ -94,4 +94,8 @@ public class SoundManager
 
         return audioClip;
     }
+    public void StopBgm()
+    {       
+        _audioSources[(int)Define.Sound.Bgm].Stop();        
+    }
 }

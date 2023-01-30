@@ -24,12 +24,9 @@ public class Define
         ATTACKREADY,
         ATTACK,
         HIT,
-        MOVE
+        MOVE,
     }
-    public enum Scene
-    {
-        Die,
-    }
+
     public enum Sound
     {
         Bgm,

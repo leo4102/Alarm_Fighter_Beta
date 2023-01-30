@@ -17,6 +17,13 @@ public class StageButton : MonoBehaviour
     }
     public void OnClick()
     {
-        Managers.Scene.LoadScene("Game");
+        GameObject go = GameObject.Find("StageMenu");
+        go.transform.GetChild(0).gameObject.SetActive(true);
+        go.transform.GetChild(1).gameObject.SetActive(true);
+        go.GetComponent<StageMenu>().SetCurrentSong(0);
+        go.GetComponent<StageMenu>().SettingSong();
+        go.GetComponent<StageMenu>().play();
+
+
     }
 }

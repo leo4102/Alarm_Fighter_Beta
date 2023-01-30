@@ -6,6 +6,7 @@ public class StartButton : MonoBehaviour
 {
     public void OnClick()
     {
-        Managers.Scene.LoadScene("Stage");
+        Managers.Sound.Clear();
+        Managers.Scene.LoadScene("Dong's Test");
     }
 }

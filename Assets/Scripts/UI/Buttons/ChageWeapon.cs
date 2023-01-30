@@ -6,16 +6,19 @@ public class ChageWeapon : MonoBehaviour
 {
     public void toWoodSword()
     {
-        Destroy(GetComponent<Weapon>());
+        GameObject go = Managers.Game.CurrentPlayer;
+        Destroy(go.GetComponent<Weapon>());
 
-        gameObject.AddComponent<WoodSword>();
+        go.AddComponent<WoodSword>();
     }
 
     public void toDiaSword()
     {
-        Destroy(GetComponent<Weapon>());
+        GameObject go = Managers.Game.CurrentPlayer;
 
-        gameObject.AddComponent<Sword>();
+        Destroy(go.GetComponent<Weapon>());
+
+        go.AddComponent<Sword>();
 
     }
 }
