@@ -83,9 +83,14 @@ public class TimingManager :MonoBehaviour
         currentTime += Time.deltaTime;
         if(currentTime >= 60d /Managers.Bpm.BPM)
         {
-            BehaveAction.Invoke();
+            if(BehaveAction != null)
+                BehaveAction.Invoke();
             Debug.Log("work!");
             currentTime -= 60d / Managers.Bpm.BPM;
         }
+    }
+    public void Clear()
+    {
+        noteList = null; timingRange = null; timingRange = null;
     }
 }

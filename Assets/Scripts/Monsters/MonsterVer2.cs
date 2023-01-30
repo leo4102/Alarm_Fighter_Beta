@@ -9,7 +9,7 @@ public class MonsterVer2 : FieldObject
     //to do : MonsterMove or MoveDirection
     Define.PlayerMove nextDirection = Define.PlayerMove.Right;
     MonsterPattern attackPattern = new LinePattern();
-    int maxHp = 3;
+    int maxHp = 1;
     int currentHp;
     private void Start()
     {
@@ -119,5 +119,10 @@ public class MonsterVer2 : FieldObject
     void Die()
     {
         Debug.Log("MonsterDIe!");
+        Managers.Game.MinusMonsterNum();
+        Managers.Timing.BehaveAction -= BitBehave;
+        GameScene gamescene=(GameScene)Managers.Scene.CurrentScene;
+        gamescene.NextMonsterIndex();
+        Destroy(gameObject);
     }
 }

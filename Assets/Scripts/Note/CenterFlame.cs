@@ -11,6 +11,7 @@ public class CenterFlame : MonoBehaviour
     void Start()
     {
         myAudio = GetComponent<AudioSource>();
+        Debug.Log("myAudio Start");
     }
 
   

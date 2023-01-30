@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 // 이 클래스는 PlayerText클래스이며 FieldObject를 상속받아 생성. FieldObject가 MonoBehaviour를 상속받고 있다. (1.17 재윤 추가)
 // Issue (1.17) 처음 시작할 때 키보드 한번을 생략하고 시작함
 public class PlayerTest : FieldObject
@@ -50,55 +51,11 @@ public class PlayerTest : FieldObject
     {
        /* if (!Managers.Bpm.Able)
             return;*/
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            //Managers.Timing.CheckTiming();
-            //timingManager.CheckTiming();
-            if (timingManager.CheckTiming())
-            {
-                mayGo(Define.PlayerMove.Up);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            //Managers.Timing.CheckTiming();
-            //timingManager.CheckTiming();
-            if (timingManager.CheckTiming())
-            {
-                mayGo(Define.PlayerMove.Left);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            //Managers.Timing.CheckTiming();
-            //timingManager.CheckTiming();
-            if (timingManager.CheckTiming())
-            {
-                mayGo(Define.PlayerMove.Down);
-            }
-
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            //Managers.Timing.CheckTiming();
-            //timingManager.CheckTiming();
-            if (timingManager.CheckTiming())
-            {
-                mayGo(Define.PlayerMove.Right);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.K))
-        {
-            //Managers.Timing.CheckTiming();
-            //timingManager.CheckTiming();
-            if (timingManager.CheckTiming())
-            {
-                Attack();
-            }
-        }
-        
-            
-        
+        if (Input.GetKeyDown(KeyCode.W) && timingManager.CheckTiming()) { mayGo(Define.PlayerMove.Up); Managers.Sound.Play("Click"); }
+        else if (Input.GetKeyDown(KeyCode.A) && timingManager.CheckTiming()) { mayGo(Define.PlayerMove.Left); Managers.Sound.Play("Click"); }
+        else if (Input.GetKeyDown(KeyCode.S) && timingManager.CheckTiming()) { mayGo(Define.PlayerMove.Down); Managers.Sound.Play("Click"); }
+        else if (Input.GetKeyDown(KeyCode.D) && timingManager.CheckTiming()) { mayGo(Define.PlayerMove.Right); Managers.Sound.Play("Click"); }
+        else if (Input.GetKeyDown(KeyCode.K) && timingManager.CheckTiming()) { Attack(); Managers.Sound.Play("KnifeAttack1"); }
     }
 
     protected override void Attack()
@@ -117,12 +74,15 @@ public class PlayerTest : FieldObject
         Debug.Log("Hit!!!!");
         GetComponent<Animator>().Play("Hit");
         CurrentHp -= 1;
+        Managers.Sound.Play("Hit");
         if (CurrentHp <= 0)
             Die();
+            
     }
     void Die()
     {
         Debug.Log("Player Die!!");
+        Managers.Game.GameOver();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

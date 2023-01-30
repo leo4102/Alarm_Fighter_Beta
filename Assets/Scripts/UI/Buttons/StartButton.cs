@@ -6,6 +6,6 @@ public class StartButton : MonoBehaviour
 {
     public void OnClick()
     {
-        Managers.SceneManagerEx.LoadScene("Stage");
+        Managers.Scene.LoadScene("Stage");
     }
 }

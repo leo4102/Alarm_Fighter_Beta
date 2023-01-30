@@ -17,6 +17,6 @@ public class StageButton : MonoBehaviour
     }
     public void OnClick()
     {
-        Managers.SceneManagerEx.LoadScene("Game");
+        Managers.Scene.LoadScene("Game");
     }
 }

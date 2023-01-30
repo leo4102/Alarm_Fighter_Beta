@@ -26,5 +26,14 @@ public class Define
         HIT,
         MOVE
     }
-
+    public enum Scene
+    {
+        Die,
+    }
+    public enum Sound
+    {
+        Bgm,
+        Effect,
+        MaxCount,
+    }
 }
