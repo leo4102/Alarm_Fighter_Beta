@@ -9,13 +9,14 @@ public class GameScene : BaseScene
 
     int maxMonsterNum;
     [SerializeField]
-    List<GameObject> monsters = new List<GameObject>();
+    List<string> monsters = new List<string>();
     [SerializeField]
     GameObject backGround;
     int GetMaxMonsterNum() { return maxMonsterNum; }
     void SetMaxMonsterNum() { maxMonsterNum = monsters.Count; }
     public override void Clear()
     {
+        Managers.Timing.Clear();
         monsters.Clear();
         monsterIndex = 0;
     }
@@ -38,7 +39,7 @@ public class GameScene : BaseScene
     }
     private void SponeMonster()
     {
-        GameObject go = Instantiate(monsters[monsterIndex]) as GameObject;
+        GameObject go = Managers.Resource.Instantiate(monsters[monsterIndex]) as GameObject;
     }
     private void SponeBackGround()
     {

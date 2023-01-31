@@ -23,7 +23,7 @@ class Pool
         for (int i = 0; i < count; i++)
             Push(Create());
 
-        }
+    }
 
     //pool에 들어갈 object 생성
     Poolable Create()
