@@ -124,5 +124,6 @@ public class MonsterVer2 : FieldObject
         GameScene gamescene=(GameScene)Managers.Scene.CurrentScene;
         gamescene.NextMonsterIndex();
         Destroy(gameObject);
+        Managers.Sound.Play("Die",Define.Sound.Effect,2.0f);
     }
 }

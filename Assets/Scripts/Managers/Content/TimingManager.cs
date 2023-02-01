@@ -92,5 +92,6 @@ public class TimingManager :MonoBehaviour
     public void Clear()
     {
         noteList = null; timingRange = null; timingRange = null;
+        BehaveAction = null;
     }
 }
