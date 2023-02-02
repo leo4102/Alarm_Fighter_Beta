@@ -7,8 +7,7 @@ using UnityEngine.SceneManagement;
 // Issue (1.17) 처음 시작할 때 키보드 한번을 생략하고 시작함
 public class PlayerTest : FieldObject       //Player(GameObject)에게 붙여짐
 {
-
-    TimingManager timingManager;
+    
     int maxHp = 3;
     int currentHp;
 
@@ -28,7 +27,6 @@ public class PlayerTest : FieldObject       //Player(GameObject)에게 붙여짐
     {
         currentHp = maxHp;
 
-        timingManager = FindObjectOfType<TimingManager>();
         hpBar = Util.FindChild<HpBar>(gameObject, null, true);    //gameObject 자식들 중 HpBar(컴포넌트)를 들고있는 자식 존재시 HpBar(컴포넌트) 반환
 
         // type을 초기화하고 objectField를 받아온 뒤, objectList에 PlayerField를 받아온다.
@@ -47,11 +45,11 @@ public class PlayerTest : FieldObject       //Player(GameObject)에게 붙여짐
 
     protected override void BitBehave()
     {
-        if (Input.GetKeyDown(KeyCode.W) && timingManager.CheckTiming()) { mayGo(Define.PlayerMove.Up); Managers.Sound.Play("Click"); }
-        else if (Input.GetKeyDown(KeyCode.A) && timingManager.CheckTiming()) { mayGo(Define.PlayerMove.Left); Managers.Sound.Play("Click"); }
-        else if (Input.GetKeyDown(KeyCode.S) && timingManager.CheckTiming()) { mayGo(Define.PlayerMove.Down); Managers.Sound.Play("Click"); }
-        else if (Input.GetKeyDown(KeyCode.D) && timingManager.CheckTiming()) { mayGo(Define.PlayerMove.Right); Managers.Sound.Play("Click"); }
-        else if (Input.GetKeyDown(KeyCode.K) && timingManager.CheckTiming()) { Attack(); Managers.Sound.Play("KnifeAttack1"); }
+        if (Input.GetKeyDown(KeyCode.W) && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Up); Managers.Sound.Play("Click"); }
+        else if (Input.GetKeyDown(KeyCode.A) && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Left); Managers.Sound.Play("Click"); }
+        else if (Input.GetKeyDown(KeyCode.S) && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Down); Managers.Sound.Play("Click"); }
+        else if (Input.GetKeyDown(KeyCode.D) && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Right); Managers.Sound.Play("Click"); }
+        else if (Input.GetKeyDown(KeyCode.K) && Managers.Timing.CheckTiming()) { Attack(); Managers.Sound.Play("KnifeAttack1"); }
     }
 
     protected override void Attack()

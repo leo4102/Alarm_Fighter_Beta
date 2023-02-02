@@ -8,7 +8,7 @@ public class LobbyScene :BaseScene
     {
         
     }
-
+    
     protected override void Init()
     {
         base.Init();

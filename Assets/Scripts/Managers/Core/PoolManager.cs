@@ -14,7 +14,7 @@ class Pool
     Stack<Poolable> _poolStack = new Stack<Poolable>();
 
     //pool의 root오브젝트 생성
-    public void Init(GameObject original, int count = 5)
+    public void Init(GameObject original, int count = 15)       //count: 한개의 Prefab으로 몇개의 clone을 만들어 놓을지 결정(디폴트 값 :5)
     {
         Original = original;
         Root = new GameObject().transform;
@@ -64,8 +64,8 @@ class Pool
         poolable.gameObject.SetActive(true);
 
         //DontDestroyOnLoad 해제용 : DontDestroyOnLoad 산하에 들어가면 명시적으로 나오지않는한 못나옴
-        //if(parent == null)
-        //    poolable.transform.parent = Managers.Scene.CurrentScene.transform;
+        if (parent == null)
+            poolable.transform.parent = Managers.Scene.CurrentScene.transform;
 
         poolable.transform.parent = parent;
         poolable.IsUsing = true;
@@ -93,7 +93,7 @@ public class PoolManager        //"@Pool_Root" 역할
     }
 
     //pool 생성하고 dictionary에 추가
-    public void CreatePool(GameObject original, int count = 5)
+    public void CreatePool(GameObject original, int count = 15)
     {
         Pool pool = new Pool();                     //빈 Pool 생성
         pool.Init(original, count);                 //pool 초기화
