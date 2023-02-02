@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxArea : MonoBehaviour
+public class BoxArea : MonoBehaviour        //»ç¿ë¾ÈµÊ
 {
 
     [SerializeField]

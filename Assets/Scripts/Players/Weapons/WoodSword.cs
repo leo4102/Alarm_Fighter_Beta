@@ -12,10 +12,10 @@ public class WoodSword : Weapon
     }
     public override int[] CalculateAttackRange(int currentInd)
     {
-        int[] pattern = new int[1];
+        int[] pattern = new int[1];         //1Ä­ °ø°Ý
         for (int i = 0; i < pattern.Length; i++)
         {
-            currentInd += 3;
+            currentInd += 3;                //Player±âÁØ ¾Õ Ä­
             pattern[i] = currentInd;
 
         }

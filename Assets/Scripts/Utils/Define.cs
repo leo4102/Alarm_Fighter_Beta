@@ -22,8 +22,8 @@ public class Define
     {
         IDLE,
         ATTACKREADY,
-        ATTACK,
-        HIT,
+        ATTACK,     //공격
+        HIT,        //맞음
         MOVE,
     }
 

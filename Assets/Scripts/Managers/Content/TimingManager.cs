@@ -48,7 +48,7 @@ public class TimingManager :MonoBehaviour
     }
 
     //생성된 Note중 timingRange에 속하는 Note가 있는지 확인
-    public bool CheckTiming()
+    public bool CheckTiming()                   //PlayerTest Update()문에서 계속 호출됨
     {
         for (int i = 0; i < noteList.Count; i++)//생성된 Note를 전부 확인
         {
@@ -75,10 +75,10 @@ public class TimingManager :MonoBehaviour
     }
 
 
-    public Action BehaveAction;
+    public Action BehaveAction;     //TimingManager의 UpdatePerBit()에서 실행(바로 아래)
     double currentTime = 0;
     
-    public void UpdatePerBit()
+    public void UpdatePerBit()      //GameScene의 Update()문에서 호출
     {
         currentTime += Time.deltaTime;
         if(currentTime >= 60d /Managers.Bpm.BPM)
@@ -91,6 +91,7 @@ public class TimingManager :MonoBehaviour
     }
     public void Clear()
     {
-        noteList = null; timingRange = null; timingRange = null;
+        noteList = null; timingRange = null;
+        BehaveAction = null;
     }
 }

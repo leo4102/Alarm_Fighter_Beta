@@ -13,10 +13,10 @@ public class Sword : Weapon
     }
     public override int[] CalculateAttackRange(int currentInd)
     {
-        int[] pattern = new int[2];
+        int[] pattern = new int[2];                 //2Ä­ °ø°Ý
         for (int i = 0; i < pattern.Length; i++)
         {
-            currentInd += 3;
+            currentInd += 3;                        //Player±âÁØ ¾Õ µÎ Ä­
             pattern[i] = currentInd;
 
         }

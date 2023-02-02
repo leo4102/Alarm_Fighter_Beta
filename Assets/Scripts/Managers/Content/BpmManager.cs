@@ -7,8 +7,8 @@ public class BpmManager
 {
     
     int bpm = 120;
+    public bool Able;
     
-
     public int BPM {
         get { return bpm; }
         private set
@@ -23,21 +23,20 @@ public class BpmManager
         SetBpmText();
     }
 
-    public bool Able;
 
     void SetBpmText()
     {
         //Text go = GameObject.Find("BpmValue").GetComponent<Text>();
         //go.text = $"{bpm}";
-        
-        
     }
+    
     public float GetAnimSpeed()
     {
         float speed = bpm / 60;
 
         return speed;
     }
+    
     public void SetBpm(int n)
     {
         BPM = n;
