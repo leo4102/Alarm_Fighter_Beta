@@ -94,7 +94,7 @@ public class TimingManager
                     //Note가 timingRange에 속하면 해당 Note 삭제
                     //Destroy(noteList[i]);
                     
-                    Managers.Bpm.Able = true;//삽입함
+                    //Managers.Bpm.Able = true;//삽입함        //------------------------------
                     noteList[i].GetComponent<Note>().HideNote();//Note 삭제 대신에 Note의 이미지만 비활성화//이유: BGM이 안 나옴
                     noteList.RemoveAt(i);
                     //Debug.Log("HIT" + j);

@@ -17,9 +17,9 @@ public class ExitButton : MonoBehaviour
     }
     public void OnClick()
     {
-        GameObject go = GameObject.Find("StageMenu");
-        go.transform.GetChild(0).gameObject.SetActive(false);
-        go.transform.GetChild(1).gameObject.SetActive(false);
+        GameObject go = GameObject.Find("StagePrologueMenu");
+        go.transform.GetChild(0).gameObject.SetActive(false);       //GreenPage(GameObject)
+        go.transform.GetChild(1).gameObject.SetActive(false);       //BlackFrame(GameObject)
         Managers.Sound.StopBgm();
         //Managers.Sound.Clear();
         Managers.Scene.LoadScene("Stage2");
