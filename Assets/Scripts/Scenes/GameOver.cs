@@ -8,6 +8,7 @@ public class GameOver : BaseScene
     {
         
     }
+
     protected override void Init()
     {
         base.Init();

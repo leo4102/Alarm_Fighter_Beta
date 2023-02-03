@@ -5,16 +5,14 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     
-    // Start is called before the first frame update
     public void Attacking()
     {
-        gameObject.SetActive(true);
+        gameObject.SetActive(true);     //Attack(GameObject È°¼ºÈ­
         Animator anim = GetComponent<Animator>();
         anim.Play("Attack");
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         

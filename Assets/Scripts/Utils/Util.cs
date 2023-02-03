@@ -14,7 +14,7 @@ public class Util
         return component;
     }
 
-    //go의 자식 중 이름이 name인 자식 찾아서 해당 자식gameObject return
+    //go의 자식 중 이름이 name인 자식 찾아서 해당 자식gameObject return, recursive : 자식의 자식까지 재귀적으로 찾을지
     public static GameObject FindChild(GameObject go, string name = null, bool recursive = false)
     {
         Transform transform = FindChild<Transform>(go, name, recursive);

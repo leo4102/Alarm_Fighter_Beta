@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Managers : MonoBehaviour
+public class Managers : MonoBehaviour       //@Managers(GameObject)¿¡ »ğÀÔµÊ(½ÃÀÛ½Ã »ı¼º)
 {
     static Managers _instance;
     public static Managers Instance { get { Init(); return _instance; } }

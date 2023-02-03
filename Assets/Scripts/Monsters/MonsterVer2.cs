@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class MonsterVer2 : FieldObject
 {
-    //idle ���� (1.25)
-    Define.State nextBehavior = Define.State.MOVE;
+    //idle º¸·ù (1.25)
+    Define.State nextBehavior = Define.State.MOVE;                  //´ÙÀ½ »óÅÂ
     //to do : MonsterMove or MoveDirection
-    Define.PlayerMove nextDirection = Define.PlayerMove.Right;
-    MonsterPattern attackPattern = new LinePattern();
+    Define.PlayerMove nextDirection = Define.PlayerMove.Right;      //´ÙÀ½ ¿òÁ÷ÀÓ ¹æÇâ
+    MonsterPattern attackPattern = new LinePattern();               //¸ó½ºÅÍÀÇ °ø°Ý ÆÐÅÏ
     int maxHp = 1;
     int currentHp;
+    
     private void Start()
     {
         currentHp = maxHp;
 
-        type = 2;
-        objectField = Managers.Field.getField();
-        objectList = objectField.getGridArray(type);
+        type = 2;                                       //¸ó½ºÅÍ Å¸ÀÔ: 2
+        objectField = Managers.Field.getField();        //BasicField(½ºÅ©¸³Æ®) ¹ÝÈ¯
+        objectList = objectField.getGridArray(type);    //monstergridArray(¸ó½ºÅÍ ¿µ¿ªÀÇ grid) ¹ÝÈ¯
 
-        currentInd = objectList.Count / 2 - 1;
+        currentInd = objectList.Count / 2 - 1;          //¸ó½ºÅÍ ÃÊ±â À§Ä¡: monstergridArray ÀÇ ÀÎµ¦½º 2
         transform.position = objectList[currentInd].transform.position;
-
-        Managers.Timing.BehaveAction -= BitBehave;
+        
+        Managers.Timing.BehaveAction -= BitBehave;      //¸ó½ºÅÍÀÇ ºñÆ® ¸¶´Ù ½ÇÇàÇÒ BitBehave ±¸µ¶
         Managers.Timing.BehaveAction += BitBehave;
     }
 
@@ -31,7 +32,7 @@ public class MonsterVer2 : FieldObject
         Animator anim = GetComponent<Animator>();
         switch(nextBehavior)
         {
-            // idle ����
+            // idle º¸·ù
             /*
             case Define.State.IDLE:
                 anim.Play("Idle");
@@ -39,7 +40,7 @@ public class MonsterVer2 : FieldObject
                 break;*/
             case Define.State.ATTACKREADY:
                 anim.Play("AttackReady");
-                updateAtttackReady();
+                updateAtttackReady();       //AtttackReady ´Ü°è¿¡ ¸Â´Â º¯È­°¡ ³ªÅ¸³ªµµ·Ï ÇÔ
                 break;
             case Define.State.ATTACK:
                 anim.Play("Attack");
@@ -53,7 +54,7 @@ public class MonsterVer2 : FieldObject
         }
     }
 
-    void ChaseCheck()
+    void ChaseCheck()       //¸¸¾à ÇöÀç »óÅÂ°¡ ¿òÁ÷¿©¾ß ÇÏ´Â Define.State.MOVE ¶ó¸é ¿òÁ÷ÀÏ ·£´ý ¹æÇâ ¹ÝÈ¯
     {
         //to do : left or right or Stop Check
         int rand = Random.Range(0, 2);
@@ -78,52 +79,53 @@ public class MonsterVer2 : FieldObject
     }
     void updateMove()
     {
-        ChaseCheck();
-        mayGo(nextDirection);
+        ChaseCheck();               //¿òÁ÷ÀÏ ·£´ý ¹æÇâ °áÁ¤     
+        mayGo(nextDirection);       //½ÇÁ¦ ¿òÁ÷ÀÓ
         nextBehavior = Define.State.ATTACKREADY;
     }
     void updateAtttackReady()
     {
-        AttackReady();
+        AttackReady();              //°ø°ÝÇÒ ¿µ¿ª »¡°­È­
         nextBehavior = Define.State.ATTACK;
     }
     void updateAttack()
     {
-        Attack();
+        Attack();                   //Damage¿µ¿ª collider È°¼ºÈ­ + Åõ¸íÈ­
         nextBehavior = Define.State.MOVE;
         //nextBehavior = Define.State.IDLE;
-        //idle ����(1.25)
+        //idle º¸·ù(1.25)
     }
     protected override void Attack()
     {
-        int[] pattern = attackPattern.calculateIndex(currentInd);
-        Managers.Field.Attack(pattern);
+        int[] pattern = attackPattern.calculateIndex(currentInd);       //¸ó½ºÅÍ°¡ °ø°ÝÇÒ gridÀÇ ÀÎµ¦½º¸¦ pattern¿¡ ¹ÝÈ¯
+        Managers.Field.Attack(pattern);                                 //Damage¿µ¿ª collider È°¼ºÈ­ + Åõ¸íÈ­
     }
     void AttackReady()
     {
-        int[] pattern = attackPattern.calculateIndex(currentInd);
-        Managers.Field.WarningAttack(pattern);
-
+        int[] pattern = attackPattern.calculateIndex(currentInd);       //¸ó½ºÅÍ°¡ °ø°ÝÇÒ gridÀÇ ÀÎµ¦½º¸¦ pattern¿¡ ¹ÝÈ¯
+        Managers.Field.WarningAttack(pattern);                          //ÇØ´ç ¿µ¿ª »¡°­È­
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)                 //PlayerÀÇ °ø°ÝÀ¸·Î ÀÎÇØ¼­ ¸ó½ºÅÍ°¡ È°¼ºÈ­µÈ grid¿¡ ´êÀ» °æ¿ì
     {
-        currentHp -= 1;
+        currentHp -= 1;                                                 //¸ó½ºÅÍ´Â ÇÑ¹æ ¸ÂÀ¸¸é µÚÁü
         GetComponent<Animator>().Play("Hit");
 
         Debug.Log("Monster Hit");
         if (currentHp <= 0)
             Die();
     }
+    
     void Die()
     {
         Debug.Log("MonsterDIe!");
         Managers.Game.MinusMonsterNum();
-        Managers.Timing.BehaveAction -= BitBehave;
-        GameScene gamescene=(GameScene)Managers.Scene.CurrentScene;
-        gamescene.NextMonsterIndex();
+        Managers.Timing.BehaveAction -= BitBehave;                           //ÇöÀç monsterIndex ¹øÂ° ¸ó½ºÅÍÀÇ ºñÆ® ¸¶´Ù ½ÇÇàÇÒ BitBehave ±¸µ¶ ÇØÁ¦
+        GameScene gamescene = (GameScene)Managers.Scene.CurrentScene;        //GameScene(½ºÅ©¸³Æ®) ¹ÝÈ¯
+        gamescene.NextMonsterIndex();                                        //´ÙÀ½ ¸ó½ºÅÍ »ý¼º
         Destroy(gameObject);
-        Managers.Sound.Play("Die",Define.Sound.Effect,2.0f);
+        Managers.Sound.Play("Die", Define.Sound.Effect, 2.0f);
+
     }
 }

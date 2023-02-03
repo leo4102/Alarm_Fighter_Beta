@@ -17,11 +17,13 @@ public class ForTest : MonoBehaviour
     }
     public void OnClick()
     {
-        GameObject go = GameObject.Find("StageMenu");
-        go.transform.GetChild(0).gameObject.SetActive(true);
-        go.transform.GetChild(1).gameObject.SetActive(true);
-        go.GetComponent<StageMenu>().SetCurrentSong(1);
-        go.GetComponent<StageMenu>().SettingSong();
-        go.GetComponent<StageMenu>().play();
+        //Transform go = transform.root;                        //현재 스크립트가 붙여진 오브젝트의 최상위 오브젝트(StagePrologueMenu) 반환
+        GameObject go = GameObject.Find("StagePrologueMenu");
+        go.transform.GetChild(0).gameObject.SetActive(true); //BlackFrame(GameObject)
+        go.transform.GetChild(1).gameObject.SetActive(true); //GreenPage(GameObject)
+        go.GetComponent<StagePrologueMenu>().SetCurrentSong(1);
+        go.GetComponent<StagePrologueMenu>().SettingSong();
+        go.GetComponent<StagePrologueMenu>().play();
+
     }
 }

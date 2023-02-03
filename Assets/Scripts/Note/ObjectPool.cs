@@ -11,7 +11,7 @@ public class ObjectInfo //Pool에 생성하고자 하는 오브젝트 정보를 담음
 }
 
 
-public class ObjectPool : MonoBehaviour
+public class ObjectPool : MonoBehaviour             //사용안함
 {
     [SerializeField] ObjectInfo[] objectInfo = null;
     public static ObjectPool objectPool; //어디서든 접근 도록 하기 위해서

@@ -4,16 +4,27 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StageMenu : MonoBehaviour
+[System.Serializable]
+public class Song           //한 개의 곡을 의미
+{
+    public string name;
+    public string difficulty;
+    public string bpm;
+    public Sprite sprite;
+}
+
+
+public class StagePrologueMenu : MonoBehaviour
 {
     [SerializeField] Song[] songList = null;
+    int currentSong = 0;
+    
+    //이하 StagePrologueMenu의 구성요소
     [SerializeField] TextMeshProUGUI txtSongName = null;
     [SerializeField] TextMeshProUGUI txtDifficulty = null;
     [SerializeField] TextMeshProUGUI txtBpm = null;
     [SerializeField] Image stageImg = null;
     
-    int currentSong = 0;
-
     public void SetCurrentSong(int num)
     {
         currentSong = num;
@@ -24,12 +35,12 @@ public class StageMenu : MonoBehaviour
         SettingSong();
     }
 
-    public void play()
+    public void play()              //txtSongName에 저장된 문자열과 동일한 명의 Bgm 재생
     {
         Managers.Sound.Play(txtSongName.text, Define.Sound.Bgm);
     }
 
-    public void SettingSong()
+    public void SettingSong()       //StagePrologueMenu의 구성요소를 currentSong에 맞게 설정
     {
         txtSongName.text = songList[currentSong].name;
         txtDifficulty.text = songList[currentSong].difficulty;
@@ -39,7 +50,7 @@ public class StageMenu : MonoBehaviour
         //Managers.Sound.Play(txtSongName.text, Define.Sound.Bgm);
     }
     //-----------------------------------------
-    void Update()
+    /*void Update()
     {
 
     }
@@ -57,14 +68,6 @@ public class StageMenu : MonoBehaviour
         {
             currentSong = songList.Length - 1;
         }
-    }
+    }*/
 }
 
-[System.Serializable]
-public class Song
-{
-    public string name;
-    public string difficulty;
-    public string bpm;
-    public Sprite sprite;
-}
