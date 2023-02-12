@@ -6,24 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Stage.unity
+    path: Assets/Resources/Scenes/Stage.unity
     guid: c9ec391ec61a9af4da29df126247bb85
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/GameOver.unity
+    path: Assets/Resources/Scenes/GameOver.unity
     guid: 62babb10590e38242a09502dafe01b46
   - enabled: 1
-    path: Assets/Scenes/StageClear.unity
+    path: Assets/Resources/Scenes/StageClear.unity
     guid: e628e673cc7adfb478400cdcf3a0e608
   - enabled: 1
     path: Assets/Scenes/Dong's Test.unity
     guid: c647950206f7d154681288f2fbd3c1f5
   - enabled: 1
-    path: Assets/Scenes/Lobby2.unity
+    path: Assets/Resources/Scenes/Lobby2.unity
     guid: 768c5bee793dd774f97f857ea3c38c94
   - enabled: 1
-    path: Assets/Scenes/Stage2.unity
+    path: Assets/Resources/Scenes/Stage2.unity
     guid: a13d9a3238d608748a5fe6683691303f
   m_configObjects: {}

@@ -33,4 +33,18 @@ public class Define
         Effect,
         MaxCount,
     }
+
+    public enum ItemRank
+    {
+        Normal,
+        Rare,
+        Epic,
+    }
+
+    public enum GridState
+    {
+        Base,
+        AttackReady,
+        Attack,
+    }
 }

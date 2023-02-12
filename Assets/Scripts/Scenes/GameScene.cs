@@ -34,9 +34,12 @@ public class GameScene : BaseScene
         SoundBgmPlay();         //BaseScene�� ���
         SponeMonster();
         SponeBackGround();
-        SponeNoteBar();
+        //SponeNoteBar();
         SponePlayer();
         SponeField();
+
+        Managers.Item.Init();
+        Managers.Resource.Instantiate("Items/ItemBoxes/@GridBaseSpawn");
     }
     public void Update()
     {
@@ -45,12 +48,13 @@ public class GameScene : BaseScene
     }
     private void SponeMonster()                 //Ư�(monsterIndex) �ε��� ��° ���� ��
     {
-        GameObject go = Managers.Resource.Instantiate(monsters[monsterIndex]) as GameObject;
+        if (monsters.Count == 0) return;
+        GameObject go = Instantiate(monsters[monsterIndex]) as GameObject;
     }
     private void SponeBackGround()              //
     {
         GameObject go = Instantiate(backGround) as GameObject;      //
-        go = Instantiate<GameObject>(go) as GameObject;     //?????
+        //go = Instantiate<GameObject>(go) as GameObject;     //?????
     }
     private void SponeNoteBar()
     {
@@ -59,14 +63,17 @@ public class GameScene : BaseScene
     }
     private void SponePlayer()
     {
-        GameObject go = Managers.Resource.Load<GameObject>("Prefabs/Player/Player");
-        go = Instantiate<GameObject>(go) as GameObject;     //
+        GameObject go = Managers.Resource.Load<GameObject>("Prefabs/Players/Player");
+        go = Instantiate<GameObject>(go) as GameObject;
+        Managers.Player.SetPlayer(go.GetComponent<Player_Parent>());
         Managers.Game.CurrentPlayer = go;
     }
     private void SponeField()
     {
-        GameObject go = Managers.Resource.Load<GameObject>("Prefabs/Fields/Field");
+        GameObject go = Managers.Resource.Load<GameObject>("Prefabs/Fields/RoundField1");
         go = Instantiate<GameObject>(go) as GameObject;
+        Managers.Field.SetField(go.GetComponent<RoundField>());
+        Managers.Field.Init();
     }
     public void NextMonsterIndex()                          //��� ���� ��
     {
