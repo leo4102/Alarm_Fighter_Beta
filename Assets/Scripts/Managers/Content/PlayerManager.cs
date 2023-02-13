@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerManager
 {
-    private Player_Parent currentPlayer;
+    private Character currentPlayer;
 
-    public void SetPlayer(Player_Parent player)
+    public void SetPlayer(Character player)
     {
         this.currentPlayer = player;
     }

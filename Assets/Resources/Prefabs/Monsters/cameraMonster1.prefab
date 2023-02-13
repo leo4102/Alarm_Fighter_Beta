@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4639618828929482511}
   - component: {fileID: 4548008268612883493}
+  - component: {fileID: 5621781582521690143}
   m_Layer: 0
   m_Name: cameraMonster1
   m_TagString: Untagged
@@ -84,3 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5621781582521690143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2658406897315016493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603ac1991ea77e945a87983aca4c5db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalMons:
+  - {fileID: 8777782285235411061, guid: 7a6ba247f0a9d5f468122e3622e2e01b, type: 3}
+  verticalMon: {fileID: 5242944870140134735, guid: 488ae20d9cdce444d832e898f8c5b989, type: 3}
+  randomMon: {fileID: 0}

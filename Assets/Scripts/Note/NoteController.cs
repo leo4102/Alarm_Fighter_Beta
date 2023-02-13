@@ -16,13 +16,11 @@ public class NoteController : MonoBehaviour     //Note2 객체(한 개)가 생성되고 �
         if (currentTime >= 60d / Managers.Bpm.BPM)
         {
             Debug.Log("Note2 created"+currentTime);
-            GameObject t_note = Managers.Resource.Instantiate("Note2",gameObject.transform);//------------------------------
+            GameObject t_note = Managers.Resource.Instantiate("Notes/Note2",gameObject.transform);//------------------------------
             
             //GameObject t_note = ObjectPool.objectPool.noteQueue.Dequeue();//notePool에서 obj(Note) 하나 꺼냄      //--------------
             t_note.transform.position = noteAppearLocation.position;//obj가 Scene에 활성화될 자리 설정
-            //t_note.SetActive(true); //가져온 obj Scene에 활성화      //----------------------
-            //GameObject t_note = GameObject.Instantiate(notePrefab, noteAppearLocation.position, Quaternion.identity);
-            //t_note.transform.SetParent(this.transform);
+            
             Managers.Timing.noteList.Add(t_note);//TimingManager2의 noteList에 생성된 Note 추가
             currentTime -= 60d / Managers.Bpm.BPM;
         }
@@ -32,13 +30,8 @@ public class NoteController : MonoBehaviour     //Note2 객체(한 개)가 생성되고 �
     {
         if (collision.CompareTag("Note2"))
         {
-            Managers.Resource.Destroy(collision.gameObject);        //-----------------------
-            Managers.Timing.noteList.Remove(collision.gameObject);//TimingManager2의 noteList에서 제거
-            ObjectPool.objectPool.noteQueue.Enqueue(collision.gameObject);//notePool에 obj(Note) 반환      //-------------------
-            //collision.gameObject.SetActive(false);//obj 비활성화      //---------------------
-
-            //Destroy(collision.gameObject);
-           
+            Managers.Resource.Destroy(collision.gameObject);        
+            Managers.Timing.noteList.Remove(collision.gameObject); //TimingManager의 noteList에서 제거
         }
     }
 }
