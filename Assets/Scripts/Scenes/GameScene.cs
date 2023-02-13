@@ -34,7 +34,7 @@ public class GameScene : BaseScene
         SoundBgmPlay();         //BaseScene�� ���
         SponeMonster();
         SponeBackGround();
-        //SponeNoteBar();
+        SponeNoteBar();
         SponePlayer();
         SponeField();
 
@@ -59,14 +59,14 @@ public class GameScene : BaseScene
     }
     private void SponeNoteBar()
     {
-        GameObject go = Managers.Resource.Load<GameObject>("Prefabs/NoteBar/NoteBar");
+        GameObject go = Managers.Resource.Load<GameObject>("Prefabs/Notes/NoteBar/NoteBar");
         go = Instantiate(go) as GameObject;
     }
     private void SponePlayer()
     {
         GameObject go = Managers.Resource.Load<GameObject>("Prefabs/Players/Player");
         go = Instantiate<GameObject>(go) as GameObject;
-        Managers.Player.SetPlayer(go.GetComponent<Player_Parent>());
+        Managers.Player.SetPlayer(go.GetComponent<Character>());
         Managers.Game.CurrentPlayer = go;
     }
     private void SponeField()

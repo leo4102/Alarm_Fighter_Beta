@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c9316e4c6cbcc4892de17dddbf896d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundBgmName: GameScene1
+  soundBgmName: StageBgm
   monsters:
   - {fileID: 2658406897315016493, guid: ec32d50921fecd049982af34d93417f0, type: 3}
   backGround: {fileID: 4305638224713831303, guid: 170a781e3a302444fa0d1beb34ec058c, type: 3}
