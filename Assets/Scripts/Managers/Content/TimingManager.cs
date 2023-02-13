@@ -11,61 +11,6 @@ public class TimingManager
 
     public Action BehaveAction;     //TimingManager의 UpdatePerBit()에서 실행(바로 아래)
     double currentTime = 0;
-    
-  /*  public void Init()
-    {
-        timingRange = GameObject.FindObjectOfType<CheckingRange>().GetTimingRange();
-        *//*if (timingRange == null)
-            Debug.Log("timingRange가 NULL이다");*//*
-    }*/
-
-    //[SerializeField] Transform centerFlame=null;
-    /* = GameObject.Find("CenterFlame").transform;*/  //CenterFlame의 위치
-
-
-    //[SerializeField] 
-    //RectTransform[] timingRect=null;
-    /*={
-    GameObject.Find("PerfectRec").GetComponent<RectTransform>(),
-    GameObject.Find("CoolRec").GetComponent<RectTransform>(),
-    GameObject.Find("GoodRec").GetComponent<RectTransform>(),
-    GameObject.Find("BadRec").GetComponent<RectTransform>()
-};*/ //색깔있는 이미지 박스
-     //Vector2[] timingRange = null; //timingRect의 x범위
-
-    //GameObject _root;
-    /* public void Init()
-     {
-          timingRange = new Vector2[timingRect.Length]; //크기 4
-
-
-
-
-         for (int i = 0; i < timingRect.Length; i++)
-         {
-
-             Util.FindChild(
-
-
-             //timingRange[0]이 perfectRect의 범위 순
-             timingRange[i] = new Vector2(timingRect[i].localPosition.x - timingRect[i].rect.width / 2,
-                 timingRect[i].anchoredPosition.x + timingRect[i].rect.width / 2);
-         }
-
-         //_root = GameObject.Find("Note2");
-     }*/
-
-    /* void Start()
-     {
-         timingRange = new Vector2[timingRect.Length]; //크기 4
-
-         for (int i = 0; i < timingRect.Length; i++)
-         {
-             //timingRange[0]이 perfectRect의 범위 순
-             timingRange[i] = new Vector2(timingRect[i].localPosition.x - timingRect[i].rect.width / 2,
-                 timingRect[i].anchoredPosition.x + timingRect[i].rect.width / 2);
-         }
-     }*/
 
     //사실상 몬스터 때문에 필요
     public void UpdatePerBit()      //GameScene의 Update()문에서 호출     //Note가 Bpm에 맞춰 생성되는 순간에 업데이트

@@ -25,6 +25,9 @@ public class Define
         ATTACK,     //공격
         HIT,        //맞음
         MOVE,
+        SPAWN,
+        NOTSPAWN,
+        DIE
     }
 
     public enum Sound
