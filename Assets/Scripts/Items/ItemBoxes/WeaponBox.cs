@@ -7,10 +7,17 @@ public class WeaponBox : MonoBehaviour
     Weapon weapon;
     int numOfAttack;
 
+    int x, y;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+    }
 
+    public void SpawnBehave()
+    {
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
     }
 
     public void SetWeapon(Weapon weapon)
@@ -39,6 +46,8 @@ public class WeaponBox : MonoBehaviour
     {
         Vector3 pos = Managers.Field.GetGrid(x, y).transform.position;
         transform.position = pos;
+        this.x = x;
+        this.y = y;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,7 +58,10 @@ public class WeaponBox : MonoBehaviour
             if (go.GetComponent<WeaponInfo>() != null)
             {
                 go.GetComponent<WeaponInfo>().AddWeapon(weapon);
+                transform.parent.GetComponent<GridBaseSpawn>().ItemDestroy(gameObject);
+                Managers.Field.GetFieldInfo(x, y).spawnable = true;
             }
         }
     }
+
 }

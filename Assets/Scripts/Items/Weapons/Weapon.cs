@@ -29,6 +29,7 @@ public class Weapon
     public void Mount(GameObject parent)
     {
         GameObject go = Object.Instantiate(weaponObject);
+        Managers.Field.ScaleByRatio(go, Managers.Player.GetCurrentX(), Managers.Player.GetCurrentY());
         go.transform.SetParent(parent.transform);
         go.transform.localPosition = Vector3.zero;
     }

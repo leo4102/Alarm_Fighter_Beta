@@ -25,11 +25,13 @@ public class Managers : MonoBehaviour       //@Managers(GameObject)¿¡ »ğÀÔµÊ(½ÃÀ
     #endregion
 
     #region Core
+    MenuManager _menu = new MenuManager();
     PoolManager _pool = new PoolManager();
     ResourceManager _resource = new ResourceManager();
     SceneManagerEx _scene = new SceneManagerEx();
     SoundManager _sound = new SoundManager();
 
+    public static MenuManager Menu { get { return Instance._menu; } }
     public static PoolManager Pool { get { return Instance._pool; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static SceneManagerEx Scene { get { return Instance._scene; } }

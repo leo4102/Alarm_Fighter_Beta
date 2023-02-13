@@ -7,14 +7,19 @@ public class ItemManager
     List<Weapon> weaponList;
 
 
-    public void WeaponSpawn(int x, int y)
+    public GameObject WeaponSpawn(int x, int y, Transform parent = null)
     {
         GameObject weapon = Managers.Resource.Instantiate("Items/ItemBoxes/WeaponBox");
         WeaponBox wpSet = weapon.GetComponent<WeaponBox>();
 
         wpSet.SetWeapon(NextWeapon());
+        Managers.Field.ScaleByRatio(weapon, x, y);
         wpSet.SetNumOfAttack();
         wpSet.SetLocation(x, y);
+        weapon.transform.SetParent(parent);
+
+        Managers.Field.GetFieldInfo(x, y).spawnable = false;
+        return weapon;
 
     }
 
