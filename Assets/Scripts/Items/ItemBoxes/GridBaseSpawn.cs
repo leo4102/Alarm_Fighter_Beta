@@ -11,12 +11,22 @@ public class GridBaseSpawn : MonoBehaviour
     int waitBit = 0;
     double currentTime = 0;
     // Start is called before the first frame update
+
+
+
+    public void ItemDestroy(GameObject go)
+    {
+
+        Managers.Resource.Destroy(go);
+        currentItem--;
+    }
     void Start()
     {
         //Managers.Timing.BehaveAction -= BitBehave;
         //Managers.Timing.BehaveAction += BitBehave;
 
     }
+
 
     void Update()
     {
@@ -43,7 +53,7 @@ public class GridBaseSpawn : MonoBehaviour
             int x, y;
             CalculateLocation(out x, out y);
 
-            Managers.Item.WeaponSpawn(x, y);
+            Managers.Item.WeaponSpawn(x, y, transform);
             currentItem++;
             waitBit = 0;
         }
@@ -54,19 +64,20 @@ public class GridBaseSpawn : MonoBehaviour
     }
     void CalculateLocation(out int x, out int y)
     {
-        while(true)
+        int rangeX = Managers.Field.GetWidth();
+        int rangeY = Managers.Field.GetHeight();
+        while (true)
         {
-            int tempX = Random.Range(0, 12);
-            int tempY = Random.Range(0, 2);
+            int tempX = Random.Range(0, rangeX);
+            int tempY = Random.Range(0, rangeY);
 
-            //if (!Managers.Field.GetField(tempX, tempY).spawnable)t
-             //   continue;
+            if (!(Managers.Field.GetFieldInfo(tempX, tempY).spawnable))
+                  continue;
 
 
             x = tempX;
             y = tempY;
             return;
-            
 
         }
 

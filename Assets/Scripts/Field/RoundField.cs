@@ -49,7 +49,9 @@ public class RoundField : MonoBehaviour
     public void ScaleByRatio(GameObject go, int x, int y)
     {
         Vector3 playerScale = go.transform.localScale;
-        playerScale = playerScale * GetFieldInfo(x, y).ratio;
+
+        playerScale = Vector3.one * GetFieldInfo(x, y).ratio;
+
         go.transform.localScale = playerScale;
     }
     public void Init()
@@ -65,11 +67,13 @@ public class RoundField : MonoBehaviour
                 FieldInfo fieldInfo = new FieldInfo();
                 if (width / 2 > i)
                 {
-                    fieldInfo.ratio = (i + 1) * 0.1f * (j + 1.0f);
+
+                    fieldInfo.ratio = (0.7f + 0.1f * j + (0.1f / (width / 2)) * (i + 1));
                 }
                 else
                 {
-                    fieldInfo.ratio = (width - i) * 0.1f * (j + 1.0f);
+                    fieldInfo.ratio = (0.7f + 0.1f * j + (0.1f / (width / 2)) * (width - i - 1));
+
                 }
                 fieldInfo.grid = transform.GetChild(index).gameObject;
                 gridArray[i].Add(fieldInfo);
@@ -83,4 +87,7 @@ public class FieldInfo
 {
     public GameObject grid; // one prefab
     public float ratio = 1.0f; // used by player scale
+
+    public bool spawnable = true;
+
 }
