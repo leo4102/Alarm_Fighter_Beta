@@ -24,8 +24,8 @@ public class VerticalAttack1 : MiniMonster_Parent
         Managers.Timing.BehaveAction -= AutoBitBehave;          //VMon1의 비트 마다 실행할 BitBehave 구독
         Managers.Timing.BehaveAction += AutoBitBehave;
     }
-   
-    public void AutoBitBehave()
+
+    protected override void AutoBitBehave()
     {
         switch (nextBehavior)
         {
@@ -67,8 +67,8 @@ public class VerticalAttack1 : MiniMonster_Parent
             move_Y = current_Y;
         }
     }
-    
-    public void AutoWarningAttack(Define.PlayerMove nextDirection)
+
+    protected override void AutoWarningAttack(Define.PlayerMove nextDirection)
     {
         SelectNextDirection();
 
@@ -85,8 +85,8 @@ public class VerticalAttack1 : MiniMonster_Parent
         nextBehavior = Define.State.ATTACK;
     }
 
-   
-    public void AutoAttack(Define.PlayerMove nextDirection)
+
+    protected override void AutoAttack(Define.PlayerMove nextDirection)
     {
         Animator anim = GetComponent<Animator>();
         anim.SetTrigger("Jump");

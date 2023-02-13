@@ -80,6 +80,7 @@ public class HorizonalAttack2 : MiniMonster_Parent
     {
         SelectNextDirection();
 
+        Debug.Log("******current_X,current_Y:" + current_X + " ," + current_Y);
         try
         {
             SpriteRenderer gridColor = Managers.Field.GetGrid(current_X - 1, current_Y).GetComponent<SpriteRenderer>();
@@ -87,13 +88,20 @@ public class HorizonalAttack2 : MiniMonster_Parent
         }
         catch (ArgumentOutOfRangeException)
         {
+            Debug.Log("LL shoud die ArgumentOutOfRangeException");
+            nextBehavior = Define.State.DIE;
+            return;
+        }
+        catch (NullReferenceException)
+        {
+            Debug.Log("LL shoud die NullReferenceException");
             nextBehavior = Define.State.DIE;
             return;
         }
         nextBehavior = Define.State.ATTACK;
     }
 
-    protected void AutoAttack(Define.PlayerMove nextDirection)
+    protected override void AutoAttack(Define.PlayerMove nextDirection)
     {
         mayGo(nextDirection);
 

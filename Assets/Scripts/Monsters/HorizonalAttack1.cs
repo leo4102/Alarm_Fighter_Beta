@@ -87,6 +87,7 @@ public class HorizonalAttack1 : MiniMonster_Parent
         }
         catch (ArgumentOutOfRangeException)
         {
+            //Debug.Log("RR shoud die ArgumentOutOfRangeException");
             nextBehavior = Define.State.DIE;
             return;
         }
@@ -94,7 +95,7 @@ public class HorizonalAttack1 : MiniMonster_Parent
     }
 
 
-    protected void AutoAttack(Define.PlayerMove nextDirection)
+    protected override void AutoAttack(Define.PlayerMove nextDirection)
     {
         mayGo(nextDirection);
 
