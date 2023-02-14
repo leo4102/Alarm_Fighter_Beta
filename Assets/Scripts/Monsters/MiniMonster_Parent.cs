@@ -8,7 +8,7 @@ public class MiniMonster_Parent : MonoBehaviour
     protected int maxHp = 1;
     protected int currentHp;
 
-
+        
     protected Define.State nextBehavior = Define.State.ATTACKREADY;
     protected Define.PlayerMove nextDirection;
 
@@ -18,7 +18,7 @@ public class MiniMonster_Parent : MonoBehaviour
     
     protected float speed;
 
-    int a = 0, b = 0;
+    protected int a = 0, b = 0;
 
 
     //maygo는 무조건 Attack()서 호출

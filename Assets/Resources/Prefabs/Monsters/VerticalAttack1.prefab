@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8192205014126870003}
   - component: {fileID: 8789474720463153271}
   m_Layer: 0
-  m_Name: Vertical_Penguin1
+  m_Name: VerticalAttack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
