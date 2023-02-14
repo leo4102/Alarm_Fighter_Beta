@@ -20,10 +20,10 @@ public class PlayerManager
     }
     public int GetCurrentX()
     {
-        return currentPlayer.GetPlayerInd_X();
+        return currentPlayer.GetCharacterInd_X();
     }
     public int GetCurrentY()
     {
-        return currentPlayer.GetPlayerInd_Y();
+        return currentPlayer.GetCharacterInd_Y();
     }
 }
