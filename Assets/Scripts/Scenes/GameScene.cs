@@ -64,7 +64,7 @@ public class GameScene : BaseScene
     }
     private void SponePlayer()
     {
-        GameObject go = Managers.Resource.Load<GameObject>("Prefabs/Players/MyPlayer");
+        GameObject go = Managers.Resource.Load<GameObject>("Prefabs/Players/Player");
         go = Instantiate<GameObject>(go) as GameObject;
         Managers.Player.SetPlayer(go.GetComponent<Character>());
         Managers.Game.CurrentPlayer = go;
