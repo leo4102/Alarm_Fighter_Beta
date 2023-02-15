@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8387294205037347921}
   - component: {fileID: 8664163937652236617}
   m_Layer: 0
-  m_Name: penguin_slide_LL
+  m_Name: HorizonalAttack2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,11 +117,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2049139376673198325}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6759e9feb7cff740a2b4ed1fa316a30, type: 3}
+  m_Script: {fileID: 11500000, guid: 90b52b1bc96adf2418147dc421bbd639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGridInd: 
-  speed: 10
 --- !u!61 &8387294205037347921
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -8,12 +8,12 @@ public class Character : MonoBehaviour
     protected int move_X, move_Y;
     protected float speed;
 
-    // player의 현재 X와 Y Index 반환
-    public int GetPlayerInd_X()
+    // Charater의 현재 X와 Y Index 반환
+    public int GetCharacterInd_X()
     {
         return current_X;
     }
-    public int GetPlayerInd_Y()
+    public int GetCharacterInd_Y()
     {
         return current_Y;
     }

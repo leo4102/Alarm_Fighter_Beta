@@ -31,7 +31,7 @@ public class GameScene : BaseScene
         base.Init();            //base�� �θ� Ŭ������ �ǹ�
         SetMaxMonsterNum();
         Managers.Game.SetMonsterCount(maxMonsterNum);
-        SoundBgmPlay();         //BaseScene�� ���
+        //SoundBgmPlay();         //BaseScene�� ���
         SponeMonster();
         SponeBackGround();
         SponeNoteBar();
@@ -64,7 +64,7 @@ public class GameScene : BaseScene
     }
     private void SponePlayer()
     {
-        GameObject go = Managers.Resource.Load<GameObject>("Prefabs/Players/Player");
+        GameObject go = Managers.Resource.Load<GameObject>("Prefabs/Players/MyPlayer");
         go = Instantiate<GameObject>(go) as GameObject;
         Managers.Player.SetPlayer(go.GetComponent<Character>());
         Managers.Game.CurrentPlayer = go;

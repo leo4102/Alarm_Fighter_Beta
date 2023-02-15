@@ -99,5 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalMons:
   - {fileID: 8777782285235411061, guid: 7a6ba247f0a9d5f468122e3622e2e01b, type: 3}
+  - {fileID: 2049139376673198325, guid: b08846d420d327046a59e1d7dc487727, type: 3}
   verticalMon: {fileID: 5242944870140134735, guid: 488ae20d9cdce444d832e898f8c5b989, type: 3}
-  randomMon: {fileID: 0}
+  randomMon: {fileID: 365997711308167143, guid: 28b048d2a177ff24d9797892f97e2f1c, type: 3}

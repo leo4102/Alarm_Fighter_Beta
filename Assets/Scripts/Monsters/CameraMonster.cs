@@ -5,30 +5,25 @@ using UnityEngine;
 
 public class CameraMonster : Character
 {
+    Define.State nextBehavior = Define.State.SPAWN;                     
 
-    // MyField myField;        //MyField(스크립트)에 접근하기 편하도록 그냥 만듬
-
-    Define.State nextBehavior = Define.State.SPAWN;                      //다음 상태
-
-    [SerializeField] List<GameObject> horizontalMons = new List<GameObject>();       //가로 공격 몬스터용
-    //[SerializeField] List<GameObject> verticalMons = new List<GameObject>();         //세로 공격 몬스터용
-    [SerializeField] GameObject verticalMon;        //세로 공격 몬스터 프리팹
-    //[SerializeField] GameObject horizontalMon;      //가로 공격 몬스터 프리팹
-    [SerializeField] GameObject randomMon;          //랜덤 공격 몬스터 프리팹
+    [SerializeField] List<GameObject> horizontalMons = new List<GameObject>();      //가로 공격 몬스터용
+    [SerializeField] GameObject verticalMon;                                        //세로 공격 몬스터용
+    [SerializeField] GameObject randomMon;                                          //랜덤 공격 몬스터용
+    
+    //[SerializeField] List<GameObject> verticalMons = new List<GameObject>();       
+    //[SerializeField] List<GameObject> randomMons = new List<GameObject>();
 
     void Start()
     {
-        //myField = Managers.Field.GetMyField();
         Managers.Timing.BehaveAction -= BitBehave;      //몬스터의 비트 마다 실행할 BitBehave 구독
         Managers.Timing.BehaveAction += BitBehave;
     }
 
     void BitBehave()
     {
-
         switch (nextBehavior)
         {
-
             case Define.State.SPAWN:
 
                 //세로 공격 몬스터 스폰
@@ -37,45 +32,34 @@ public class CameraMonster : Character
                     SpawnVerticalMonster(verticalMon);
                 }
 
+                //가로 공격 몬스터 스폰
                 if (Managers.Game.CurrentHMons.Count < 1) //필드에 1개 이상 만들어지지 않음
                 {
-                    SpawnHorizontalMonster();
+                    //SpawnHorizontalMonster();
                 }
 
+                //랜덤 공격 몬스터 스폰
                 if (Managers.Game.CurrentRMons.Count < 1) //필드에 1개 이상 만들어지지 않음
                 {
                     //SpawnRandomMonster(randomMon);
                 }
-                //SpawnVerticalMonster(verticalMon);
-                //Debug.Log("spawn penguin");
-
-
-
 
                 nextBehavior = Define.State.NOTSPAWN;
-
                 break;
 
 
             case Define.State.NOTSPAWN:
 
-
-                //딱히 하는 일 없음
-                //Debug.Log("Not spawn");
-
                 nextBehavior = Define.State.SPAWN;
-
                 break;
-
 
         }
     }
 
-    private void SpawnRandomMonster(GameObject prefab)
+    private void SpawnVerticalMonster(GameObject prefab)        
     {
         GameObject go = Instantiate<GameObject>(prefab);
-        Debug.Log("생성된 랜덤 GameObject:" + go);
-        Managers.Game.CurrentRMons.Add(go);
+        Managers.Game.CurrentVMons.Add(go);
     }
 
     private void SpawnHorizontalMonster()
@@ -85,14 +69,14 @@ public class CameraMonster : Character
         Managers.Game.CurrentHMons.Add(go);
     }
 
-    private void SpawnVerticalMonster(GameObject prefab)        //펭귄 스폰
+    private void SpawnRandomMonster(GameObject prefab)
     {
-        //몬스터 scene에 생성
         GameObject go = Instantiate<GameObject>(prefab);
-        Debug.Log("생성된 GameObject:" + go);
-        Managers.Game.CurrentVMons.Add(go);
+        Managers.Game.CurrentRMons.Add(go);
     }
 
+
+ 
     private void OnTriggerEnter2D(Collider2D collision)                 //Player의 공격으로 인해서 몬스터가 활성화된 grid에 닿을 경우
     {
 

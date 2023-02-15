@@ -12,6 +12,7 @@ public class MonsterAttackPatterns : MonoBehaviour
         Row,
         Col,
     }
+
     private void Attack(int x,int y)
     {
         if(x>=width||y>=height||x<0||y<0)
@@ -21,8 +22,8 @@ public class MonsterAttackPatterns : MonoBehaviour
         }
 
         Managers.Field.ChangeGrid(x, y, Define.GridState.Attack);
-        
     }
+    
     public void LineAttack(Line line, int where)// ex) row , 2 attack
     {
         if(where > 2 || where < 0) { Debug.Log("MonsterAttackPatterns LineAttack Out Of Index!"); return; }
