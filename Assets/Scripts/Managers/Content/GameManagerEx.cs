@@ -8,13 +8,13 @@ public class GameManagerEx
     int MonsterCount;           //���� ����        //��� �ʱ�ȭ? GameSCene ��ũ��Ʈ Init()��
     public GameObject CurrentPlayer { get; set; }
 
-    //public List<GameObject> CurrentVMons = new List<GameObject>();     //현재 필드에 나와있는 세로 공격형 몬스터 수       //gamemanagers 로 보냄
-    //public List<GameObject> CurrentHMons = new List<GameObject>();     //현재 필드에 나와있는 가로 공격형 몬스터 수
-    //public List<GameObject> CurrentRMons = new List<GameObject>();     //현재 필드에 나와있는 랜덤 공격형 몬스터 수
+    public List<GameObject> CurrentVMons = new List<GameObject>();     //현재 필드에 나와있는 세로 공격형 몬스터 수       //gamemanagers 로 보냄
+    public List<GameObject> CurrentHMons = new List<GameObject>();     //현재 필드에 나와있는 가로 공격형 몬스터 수
+    public List<GameObject> CurrentRMons = new List<GameObject>();     //현재 필드에 나와있는 랜덤 공격형 몬스터 수
 
-    public List<Component> CurrentVMons = new List<GameObject>();
+    /*public List<Component> CurrentVMons = new List<GameObject>();
     public List<GameObject> CurrentHMons = new List<GameObject>();
-    public List<GameObject> CurrentRMons = new List<GameObject>();
+    public List<GameObject> CurrentRMons = new List<GameObject>();*/
     
     public void GameOver()      //���ΰ� ���
     {
@@ -51,6 +51,8 @@ public class GameManagerEx
         if (MonsterCount <= 0)
             StageClear();
     }
+
+    //----------------------------------------------------------------
   /* public bool CheckFrontObject(int move_X,int move_Y)
     {
         int player_X = Managers.Player.GetCurrentX();
@@ -74,7 +76,7 @@ public class GameManagerEx
         }
     }*/
 
-    public bool CheckFrontObject(int move_X, int move_Y)
+   /* public bool CheckFrontObject(int move_X, int move_Y)
     {
         {
             int player_X = Managers.Player.GetCurrentX();
@@ -103,7 +105,7 @@ public class GameManagerEx
             
             return true;
         }
-    }
+    }*/
 
 
 

@@ -28,4 +28,9 @@ public class JYPlayer : Character
         ChangeSize(current_Y);
     }
 
+    /*private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Animator anim = GetComponent<Animator>();
+        anim.SetTrigger("MyPlayerHit");
+    }*/
 }

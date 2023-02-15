@@ -32,16 +32,26 @@ public class RandomAttack1 : MiniMonster_Parent
     {
         try
         {
-           /* int player_X = Managers.Player.GetCurrentX();
-            int player_Y = Managers.Player.GetCurrentY();
+            /* int player_X = Managers.Player.GetCurrentX();
+             int player_Y = Managers.Player.GetCurrentY();
 
-            if (player_X == move_X && player_Y == move_Y)    //Myplayer위치==공격할 위치(움직이지 말것)
+             if (player_X == move_X && player_Y == move_Y)    //Myplayer위치==공격할 위치(움직이지 말것)
+             {
+                 return;
+
+                 //move_X = current_X;
+                 //move_Y = current_Y;
+             }*/
+
+            Vector2 checkPoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;
+            if (!(Physics2D.OverlapCircle(checkPoint, 1.0f)))
             {
+                move_X = current_X;
+                move_Y = current_Y;
+                
                 return;
 
-                //move_X = current_X;
-                //move_Y = current_Y;
-            }*/
+            }
 
             SpriteRenderer currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = new Color(255f, 255f, 255f, 1);
