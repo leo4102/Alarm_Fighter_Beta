@@ -17,7 +17,7 @@ public class ShadowEffect : MonoBehaviour
         float alpha = rend.color.a;
         if (alpha <= 0)
         {
-            rend.color = new Color(rend.color.r, rend.color.g, rend.color.b, 1f);
+            rend.color = new Color(rend.color.r, rend.color.g, rend.color.b, 0.6f);
             Managers.Resource.Destroy(gameObject);
             return;
         }
