@@ -37,7 +37,7 @@ public class GameScene : BaseScene
         SponeNoteBar();
         SponePlayer();
         SponeField();
-
+        SponeMoveButton();
         Managers.Item.Init();
         Managers.Resource.Instantiate("Items/ItemBoxes/@GridBaseSpawn");
         Managers.Menu.Init();
@@ -75,6 +75,12 @@ public class GameScene : BaseScene
         go = Instantiate<GameObject>(go) as GameObject;
         Managers.Field.SetField(go.GetComponent<RoundField>());
         Managers.Field.Init();
+    }
+    private void SponeMoveButton()
+    {
+        GameObject go = Managers.Resource.Load<GameObject>("Prefabs/UI/MoveButton");
+        go = Instantiate<GameObject>(go) as GameObject;
+
     }
     public void NextMonsterIndex()                          //��� ���� ��
     {

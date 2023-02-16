@@ -17,10 +17,10 @@ public class JYPlayer : Character
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W) && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Up); }
-        else if (Input.GetKeyDown(KeyCode.A) && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Left); }
-        else if (Input.GetKeyDown(KeyCode.S) && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Down); }
-        else if (Input.GetKeyDown(KeyCode.D) && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Right); }
+        if (isUp && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Up); isUp = false; }
+        else if (isLeft && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Left); isLeft = false; }
+        else if (isDown && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Down); isDown = false; }
+        else if (isRight && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Right); isRight = false; }
 
         this.transform.position = Vector3.MoveTowards(transform.position, Managers.Field.GetGrid(move_X, move_Y).transform.position, Time.deltaTime * speed); //Time.deltaTime * speed
         CheckMove();
