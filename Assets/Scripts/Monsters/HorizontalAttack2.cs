@@ -1,25 +1,25 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class HorizonalAttack1 : MiniMonster_Parent
+//right to left straight attack(disappear at the end)
+public class HorizontalAttack2 : MiniMonster_Parent
 {
     private void Start()
     {
+        currentHp = maxHp;
         speed = 10f;
         int rand = UnityEngine.Random.Range(1, Managers.Field.GetHeight());    //처음 스폰 위치 결정      
 
 
-        transform.position = Managers.Field.GetGrid(0, rand).transform.position;
-        current_X = 0;
+        transform.position = Managers.Field.GetGrid(Managers.Field.GetWidth() - 1, rand).transform.position;
+        current_X = Managers.Field.GetWidth() - 1;
         current_Y = rand;
 
-        move_X = 0;
+        move_X = Managers.Field.GetWidth() - 1;
         move_Y = rand;
 
-        //Debug.Log("Start :  Move_x,Move_Y:" + move_X + " ," + move_Y);
-        //Debug.Log("Start : current_X,current_Y:" + current_X + " ," + current_Y);
+        Debug.Log("Start :  Move_x,Move_Y:" + move_X + " ," + move_Y);
+        Debug.Log("Start : current_X,current_Y:" + current_X + " ," + current_Y);
 
         SpriteRenderer currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
         currentGridColor.color = Color.magenta;
@@ -32,7 +32,7 @@ public class HorizonalAttack1 : MiniMonster_Parent
     private void FixedUpdate()
     {
         try
-        {   
+        {
             SpriteRenderer currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = new Color(255f, 255f, 255f, 1);
 
@@ -42,6 +42,8 @@ public class HorizonalAttack1 : MiniMonster_Parent
 
             current_X = move_X;
             current_Y = move_Y;
+
+            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(current_X, current_Y));//-----------------
 
             currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = Color.magenta;
@@ -64,12 +66,12 @@ public class HorizonalAttack1 : MiniMonster_Parent
                 break;
 
             case Define.State.ATTACK:                        //다음 박자에 아래로 이동 밑 공격
-                
+
                 AutoAttack(nextDirection);
                 break;
 
             case Define.State.DIE:
-                
+
                 Die();
                 break;
 
@@ -79,28 +81,34 @@ public class HorizonalAttack1 : MiniMonster_Parent
     protected override void AutoWarningAttack(Define.PlayerMove nextDirection)
     {
         SelectNextDirection();
-        
+
+        Debug.Log("******current_X,current_Y:" + current_X + " ," + current_Y);
         try
         {
-            SpriteRenderer gridColor = Managers.Field.GetGrid(current_X + 1, current_Y).GetComponent<SpriteRenderer>();
+            SpriteRenderer gridColor = Managers.Field.GetGrid(current_X + a, current_Y + b).GetComponent<SpriteRenderer>();
             gridColor.color = Color.red;
         }
         catch (ArgumentOutOfRangeException)
         {
-            //Debug.Log("RR shoud die ArgumentOutOfRangeException");
+            Debug.Log("LL shoud die ArgumentOutOfRangeException");
+            nextBehavior = Define.State.DIE;
+            return;
+        }
+        catch (NullReferenceException)
+        {
+            Debug.Log("LL shoud die NullReferenceException");
             nextBehavior = Define.State.DIE;
             return;
         }
         nextBehavior = Define.State.ATTACK;
     }
 
-
     protected override void AutoAttack(Define.PlayerMove nextDirection)
     {
         mayGo(nextDirection);
 
-        //Debug.Log("Move_x,Move_Y:" + move_X + " ," + move_Y);
-        //Debug.Log("current_X,current_Y:" + current_X + " ," + current_Y);
+        Debug.Log("Move_x,Move_Y:" + move_X + " ," + move_Y);
+        Debug.Log("current_X,current_Y:" + current_X + " ," + current_Y);
 
         StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));
 
@@ -109,7 +117,8 @@ public class HorizonalAttack1 : MiniMonster_Parent
 
     protected override void SelectNextDirection()
     {
-        nextDirection = Define.PlayerMove.Right;
+        nextDirection = Define.PlayerMove.Left;
+        a = -1;b = 0;
     }
 
     protected override void Die()
@@ -117,12 +126,21 @@ public class HorizonalAttack1 : MiniMonster_Parent
         Destroy(gameObject);
         //Debug.Log("Die 할 GameObject :" + gameObject);
         Managers.Timing.BehaveAction -= AutoBitBehave;
-        Managers.Game.CurrentHMons.Remove(gameObject);
+        Managers.Monster.CurrentHMons.Remove(gameObject);
 
         SpriteRenderer currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
         currentGridColor.color = new Color(255f, 255f, 255f, 1);
     }
-    
 
-   
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        currentHp -= 1;
+        if (currentHp <= 0)
+        {
+            nextBehavior = Define.State.DIE;
+        }
+
+    }
+
+
 }

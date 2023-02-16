@@ -12,8 +12,10 @@ public class JYPlayer : Character
         move_Y = current_Y;
         speed = 10f;
         this.transform.position = Managers.Field.GetGrid(current_X, current_Y).transform.position;
+
         Managers.Field.ScaleByRatio(gameObject, current_X, current_Y);
         anim = GetComponent<Animator>();
+    
     }
     void Update()
     {
@@ -26,8 +28,9 @@ public class JYPlayer : Character
         CheckMove();
         current_X = move_X;
         current_Y = move_Y;
-        Managers.Field.ScaleByRatio(gameObject, current_X, current_Y);
 
+        Managers.Field.ScaleByRatio(gameObject, current_X, current_Y);
+        
     }
 
     
@@ -60,9 +63,4 @@ public class JYPlayer : Character
         anim.SetFloat("Idle", direct);
     }
 
-    /*private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Animator anim = GetComponent<Animator>();
-        anim.SetTrigger("MyPlayerHit");
-    }*/
 }

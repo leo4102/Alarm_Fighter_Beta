@@ -1,25 +1,25 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class HorizonalAttack2 : MiniMonster_Parent
+//left to right diagonal attack(disappear at the end)
+public class HorizontalAttack3 : MiniMonster_Parent
 {
     private void Start()
     {
+        currentHp = maxHp;
         speed = 10f;
-        int rand = UnityEngine.Random.Range(1, Managers.Field.GetHeight());    //처음 스폰 위치 결정      
+        int rand = UnityEngine.Random.Range(0, Managers.Field.GetHeight());    //처음 스폰 위치  결정      
 
 
-        transform.position = Managers.Field.GetGrid(Managers.Field.GetWidth()-1, rand).transform.position;
-        current_X = Managers.Field.GetWidth() - 1;
+        transform.position = Managers.Field.GetGrid(0, rand).transform.position;
+        current_X = 0;
         current_Y = rand;
 
-        move_X = Managers.Field.GetWidth() - 1;
+        move_X = 0;
         move_Y = rand;
 
-        Debug.Log("Start :  Move_x,Move_Y:" + move_X + " ," + move_Y);
-        Debug.Log("Start : current_X,current_Y:" + current_X + " ," + current_Y);
+        //Debug.Log("Start :  Move_x,Move_Y:" + move_X + " ," + move_Y);
+        //Debug.Log("Start : current_X,current_Y:" + current_X + " ," + current_Y);
 
         SpriteRenderer currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
         currentGridColor.color = Color.magenta;
@@ -27,6 +27,12 @@ public class HorizonalAttack2 : MiniMonster_Parent
         //소환되는 애니메이션 실행
         Managers.Timing.BehaveAction -= AutoBitBehave;      //VMon1의 비트 마다 실행할 BitBehave 구독
         Managers.Timing.BehaveAction += AutoBitBehave;
+        
+        Debug.Log("start전 현재 선택된 방향:   " + nextDirection + "," + a + "," + b);
+
+        SelectNextDirection();
+
+        Debug.Log("start 서 현재 선택된 방향:   " + nextDirection + "," + a + "," + b);
     }
 
     private void FixedUpdate()
@@ -42,6 +48,8 @@ public class HorizonalAttack2 : MiniMonster_Parent
 
             current_X = move_X;
             current_Y = move_Y;
+
+            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(current_X, current_Y));  //------------------
 
             currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = Color.magenta;
@@ -78,34 +86,38 @@ public class HorizonalAttack2 : MiniMonster_Parent
 
     protected override void AutoWarningAttack(Define.PlayerMove nextDirection)
     {
-        SelectNextDirection();
+        //SelectNextDirection();        //Start문으로 보냄
 
-        Debug.Log("******current_X,current_Y:" + current_X + " ," + current_Y);
         try
         {
-            SpriteRenderer gridColor = Managers.Field.GetGrid(current_X - 1, current_Y).GetComponent<SpriteRenderer>();
+            if (current_X + a > Managers.Field.GetWidth()-1)
+            {
+                nextBehavior = Define.State.DIE;
+                return;
+            }
+
+            SpriteRenderer gridColor = Managers.Field.GetGrid(current_X + a, current_Y + b).GetComponent<SpriteRenderer>();
             gridColor.color = Color.red;
         }
         catch (ArgumentOutOfRangeException)
         {
-            Debug.Log("LL shoud die ArgumentOutOfRangeException");
-            nextBehavior = Define.State.DIE;
-            return;
+            //Debug.Log("RR shoud die ArgumentOutOfRangeException");
+            SelectNextDirection();
+            Debug.Log("attack ready서 현재 선택된 방향:   " + this.nextDirection + "," + a +"," + b);
+
+            SpriteRenderer gridColor = Managers.Field.GetGrid(current_X + a, current_Y + b).GetComponent<SpriteRenderer>();
+            gridColor.color = Color.red;
         }
-        catch (NullReferenceException)
-        {
-            Debug.Log("LL shoud die NullReferenceException");
-            nextBehavior = Define.State.DIE;
-            return;
-        }
+
         nextBehavior = Define.State.ATTACK;
     }
+
 
     protected override void AutoAttack(Define.PlayerMove nextDirection)
     {
         mayGo(nextDirection);
 
-        Debug.Log("Move_x,Move_Y:" + move_X + " ," + move_Y);
+        Debug.Log("Move_x, Move_Y:  " + move_X + " ," + move_Y);
         Debug.Log("current_X,current_Y:" + current_X + " ," + current_Y);
 
         StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));
@@ -115,7 +127,31 @@ public class HorizonalAttack2 : MiniMonster_Parent
 
     protected override void SelectNextDirection()
     {
-        nextDirection = Define.PlayerMove.Left;
+        if (nextDirection == Define.PlayerMove.RIGHTUP)
+        {
+            nextDirection = Define.PlayerMove.RIGHTDOWN;
+            a = 1; b = 1;
+        }
+        else if (nextDirection == Define.PlayerMove.RIGHTDOWN)
+        {
+            nextDirection = Define.PlayerMove.RIGHTUP;
+            a = 1; b = -1;
+        }
+        else if (nextDirection == Define.PlayerMove.NULL)
+        {
+            int rand = UnityEngine.Random.Range(0, 2);      //0 or 1 random num
+            if (rand == 0)
+            {
+                nextDirection = Define.PlayerMove.RIGHTUP;
+                a = 1; b = -1;
+            }
+            else if (rand == 1)
+            {
+                nextDirection = Define.PlayerMove.RIGHTDOWN;
+                a = 1; b = 1;
+            }
+        }
+
     }
 
     protected override void Die()
@@ -123,12 +159,19 @@ public class HorizonalAttack2 : MiniMonster_Parent
         Destroy(gameObject);
         //Debug.Log("Die 할 GameObject :" + gameObject);
         Managers.Timing.BehaveAction -= AutoBitBehave;
-        Managers.Game.CurrentHMons.Remove(gameObject);
+        Managers.Monster.CurrentHMons.Remove(gameObject);
 
         SpriteRenderer currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
         currentGridColor.color = new Color(255f, 255f, 255f, 1);
     }
 
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        currentHp -= 1;
+        if (currentHp <= 0)
+        {
+            nextBehavior = Define.State.DIE;
+        }
 
-
+    }
 }

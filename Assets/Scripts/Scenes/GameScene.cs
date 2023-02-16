@@ -42,6 +42,7 @@ public class GameScene : BaseScene
         Managers.Resource.Instantiate("Items/ItemBoxes/@GridBaseSpawn");
         Managers.Menu.Init();
     }
+    
     public void Update()
     {
         Managers.Timing.UpdatePerBit();         //�� ��Ʈ���� ���� �ൿ ����Ʈ
