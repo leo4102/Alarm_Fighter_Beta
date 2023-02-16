@@ -60,9 +60,9 @@ public class MonsterVer2 : MonoBehaviour
             case 1:
                 nextDirection = Define.PlayerMove.Left;
                 break;
-            case 2:
+            /*case 2:
                 nextDirection = Define.PlayerMove.Stop;
-                break;
+                break;*/
         }    
     }
 

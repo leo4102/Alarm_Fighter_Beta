@@ -9,10 +9,10 @@ public class CameraMonster : Character
 
     [SerializeField] List<GameObject> horizontalMons = new List<GameObject>();      //가로 공격 몬스터용
     [SerializeField] GameObject verticalMon;                                        //세로 공격 몬스터용
-    [SerializeField] GameObject randomMon;                                          //랜덤 공격 몬스터용
+    [SerializeField] List<GameObject> randomMons = new List<GameObject>();
     
     //[SerializeField] List<GameObject> verticalMons = new List<GameObject>();       
-    //[SerializeField] List<GameObject> randomMons = new List<GameObject>();
+    //[SerializeField] GameObject randomMon;                                          //랜덤 공격 몬스터용
 
     void Start()
     {
@@ -27,21 +27,21 @@ public class CameraMonster : Character
             case Define.State.SPAWN:
 
                 //세로 공격 몬스터 스폰
-                if (Managers.Game.CurrentVMons.Count < 2) //필드에 2개 이상 만들어지지 않음
+                if (Managers.Monster.CurrentVMons.Count < 2) //필드에 2개 이상 만들어지지 않음
                 {
                     //SpawnVerticalMonster(verticalMon);
                 }
 
                 //가로 공격 몬스터 스폰
-                if (Managers.Game.CurrentHMons.Count < 1) //필드에 1개 이상 만들어지지 않음
+                if (Managers.Monster.CurrentHMons.Count < 1) //필드에 1개 이상 만들어지지 않음
                 {
-                    //SpawnHorizontalMonster();
+                    SpawnHorizontalMonster();
                 }
 
                 //랜덤 공격 몬스터 스폰
-                if (Managers.Game.CurrentRMons.Count < 1) //필드에 1개 이상 만들어지지 않음
+                if (Managers.Monster.CurrentRMons.Count < 1) //필드에 1개 이상 만들어지지 않음
                 {
-                    SpawnRandomMonster(randomMon);
+                    //SpawnRandomMonster( );
                 }
 
                 nextBehavior = Define.State.NOTSPAWN;
@@ -59,20 +59,23 @@ public class CameraMonster : Character
     private void SpawnVerticalMonster(GameObject prefab)        
     {
         GameObject go = Instantiate<GameObject>(prefab);
-        Managers.Game.CurrentVMons.Add(go);
+        Managers.Monster.CurrentVMons.Add(go);
     }
 
     private void SpawnHorizontalMonster()
     {
         int rand = UnityEngine.Random.Range(0, horizontalMons.Count);
         GameObject go = Instantiate<GameObject>(horizontalMons[rand]);
-        Managers.Game.CurrentHMons.Add(go);
+        Managers.Monster.CurrentHMons.Add(go);
     }
 
-    private void SpawnRandomMonster(GameObject prefab)
+    private void SpawnRandomMonster( )
     {
-        GameObject go = Instantiate<GameObject>(prefab);
-        Managers.Game.CurrentRMons.Add(go);
+        //int rand = UnityEngine.Random.Range(0, randomMons.Count);
+        //GameObject go = Instantiate<GameObject>(randomMons[rand]);
+
+        GameObject go = Instantiate<GameObject>(randomMons[0]);
+        Managers.Monster.CurrentRMons.Add(go);
     }
 
 

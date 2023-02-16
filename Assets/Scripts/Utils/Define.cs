@@ -12,11 +12,15 @@ public class Define
     }
     public enum PlayerMove
     {
+        NULL,       //just for reset
         Up,
         Down,
         Left,
         Right,
-        Stop,
+        RIGHTUP,
+        LEFTUP,
+        RIGHTDOWN,
+        LEFTDOWN,
     }
     public enum State
     {

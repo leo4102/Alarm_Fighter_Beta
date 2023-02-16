@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+//follow player attack
 public class RandomAttack1 : MiniMonster_Parent
 {
     private void Start()
@@ -32,7 +33,19 @@ public class RandomAttack1 : MiniMonster_Parent
     {
         try
         {
-            int player_X = Managers.Player.GetCurrentX();
+            /*if (Managers.Monster.CheckFrontObject(move_X, move_Y))
+            {
+
+                return;
+
+                //move_X = current_X;
+                //move_Y = current_Y;
+            }*/
+
+
+
+            //-----------------------------------------------------------------------------------
+            /*int player_X = Managers.Player.GetCurrentX();
             int player_Y = Managers.Player.GetCurrentY();
 
             if (player_X == move_X && player_Y == move_Y)    //Myplayer위치==공격할 위치(움직이지 말것)
@@ -41,28 +54,45 @@ public class RandomAttack1 : MiniMonster_Parent
 
                 //move_X = current_X;
                 //move_Y = current_Y;
+            }*/
+            //------------------------------------------------------------------------------------
+            Vector3 checkPoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;     //movepoint 과 동일한 역할
+            if (((move_X != current_X) || (move_Y != current_Y)) && (Physics2D.OverlapCircle(checkPoint, 0.2f)))
+            {
+                //Debug.Log("Movepoint에 플레이어 있음");
+
+
+                //SpriteRenderer moveGridColor = Managers.Field.GetGrid(move_X, move_Y).GetComponent<SpriteRenderer>();
+                //moveGridColor.color = new Color(255f, 255f, 255f, 1);
+
+                SpriteRenderer currentColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
+                currentColor.color = Color.magenta;
+
+                //move_X = current_X;
+                //move_Y = current_Y;
+
+                return;
+               
             }
-
-            /* Vector2 checkPoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;
-             if (!(Physics2D.OverlapCircle(checkPoint, 1.0f)))
-             {
-                 move_X = current_X;
-                 move_Y = current_Y;
-
-                 return;
-
-             }*/
-
+            //------------------------------------------------------------------------------------
+            //만약 움직인다면
+            //움직이기 이전의 자리를 보->흰 색으로 바꾼다.
             SpriteRenderer currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = new Color(255f, 255f, 255f, 1);
 
-
-            Vector3 movePoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;
+            //Attack서 변경된 자리로 객체 자리 이동
+            Vector3 movePoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;      //여기서 에러 발생 가능
             transform.position = Vector3.MoveTowards(transform.position, movePoint, Time.deltaTime * speed);
 
+
+            //객체가 움직였으므로 현재 Grid도 변경
             current_X = move_X;
             current_Y = move_Y;
+           
+            //현재 grid의 collider활성화
+            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(current_X, current_Y));      //-------------
 
+            //변경된 자리 보라색화
             currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = Color.magenta;
 
@@ -78,7 +108,7 @@ public class RandomAttack1 : MiniMonster_Parent
     {
         int player_X = Managers.Player.GetCurrentX();
 
-        if ((player_X - 5 < current_X) && (current_X < player_X + 5))     //MyPlayer의 +-2(열) 범위 안에 들어오면 RMons1 움직임
+        if ((player_X - 5 < current_X) && (current_X < player_X + 5))     //MyPlayer의 +-4(열) 범위 안에 들어오면 RMons1 움직임
         {
             switch (nextBehavior)
             {
@@ -122,12 +152,17 @@ public class RandomAttack1 : MiniMonster_Parent
 
     protected override void AutoAttack(Define.PlayerMove nextDirection)
     {
+        //moveGrid 변경되기 전에 빨 이면 흰색화
+        SpriteRenderer moveGridColor = Managers.Field.GetGrid(move_X, move_Y).GetComponent<SpriteRenderer>();
+        if(moveGridColor.color==Color.red)
+            moveGridColor.color = new Color(255f, 255f, 255f, 1);
+        
         mayGo(nextDirection);
 
         //Debug.Log("Move_x,Move_Y:" + move_X + " ," + move_Y);
         //Debug.Log("current_X,current_Y:" + current_X + " ," + current_Y);
 
-        StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));
+        //StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));
 
         nextBehavior = Define.State.ATTACKREADY;
     }
@@ -140,7 +175,7 @@ public class RandomAttack1 : MiniMonster_Parent
         towardPlayer_X = player_X - current_X;
         towardPlayer_Y = player_Y - current_Y;
 
-        Debug.Log("towardPlayer_X:  " + towardPlayer_X + ",     towardPlayer_Y:   " + towardPlayer_Y);
+        //Debug.Log("towardPlayer_X:  " + towardPlayer_X + ",     towardPlayer_Y:   " + towardPlayer_Y);
 
         if (towardPlayer_X != 0 && towardPlayer_Y != 0)       //열 또는 행 변경
         {
@@ -157,7 +192,7 @@ public class RandomAttack1 : MiniMonster_Parent
         {
             ChooseUpOrDown();
         }
-        else
+        else//(towardPlayer_X == 0 && towardPlayer_Y == 0) 
         {
             Debug.Log("SelectNextDirection()에서 오류 발생");
         }
@@ -168,7 +203,7 @@ public class RandomAttack1 : MiniMonster_Parent
         Destroy(gameObject);
         //Debug.Log("Die 할 GameObject :" + gameObject);
         Managers.Timing.BehaveAction -= AutoBitBehave;
-        Managers.Game.CurrentRMons.Remove(gameObject);
+        Managers.Monster.CurrentRMons.Remove(gameObject);
 
         SpriteRenderer currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
         currentGridColor.color = new Color(255f, 255f, 255f, 1);

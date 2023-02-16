@@ -38,9 +38,9 @@ public class GameScene : BaseScene
         SponePlayer();
         SponeField();
 
-        Managers.Item.Init();
-        Managers.Resource.Instantiate("Items/ItemBoxes/@GridBaseSpawn");
-        Managers.Menu.Init();
+        //Managers.Item.Init();
+        //Managers.Resource.Instantiate("Items/ItemBoxes/@GridBaseSpawn");
+        //Managers.Menu.Init();
     }
     public void Update()
     {

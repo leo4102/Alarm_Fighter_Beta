@@ -20,6 +20,12 @@ public class MiniMonster_Parent : MonoBehaviour
 
     protected int a = 0, b = 0;
 
+    public int GetCurrent_X() { return current_X; }
+    public int GetCurrent_Y() { return current_Y; }
+
+    public int GetMove_X() { return move_X; }
+    public int GetMove_Y() { return move_Y; }
+
 
     //maygo는 무조건 Attack()서 호출
     //maygo서 moveGridInd를 바꾸면 거기로 RMons1이 바로 이동
@@ -53,6 +59,39 @@ public class MiniMonster_Parent : MonoBehaviour
             if (move_X > Managers.Field.GetWidth() - 1)
                 move_X = current_X;
         }
+        else if (direction == Define.PlayerMove.RIGHTUP)
+        {
+            move_X += 1; move_Y -= 1;
+            if ((move_X > Managers.Field.GetWidth() - 1) || (move_Y < 0))
+            {
+                move_X = current_X; move_Y = current_Y;
+            }
+        }
+        else if (direction == Define.PlayerMove.LEFTUP)
+        {
+            move_X -= 1; move_Y -= 1;
+            if (move_X < 0 || move_Y < 0)
+            {
+                move_X = current_X; move_Y = current_Y;
+            }
+        }
+        else if (direction == Define.PlayerMove.RIGHTDOWN)
+        {
+            move_X += 1; move_Y += 1;
+            if ((move_X > Managers.Field.GetWidth() - 1) || (move_Y > Managers.Field.GetHeight() - 1))
+            {
+                move_X = current_X; move_Y = current_Y;
+            }
+        }
+        else if (direction == Define.PlayerMove.LEFTDOWN)
+        {
+            move_X -= 1; move_Y += 1;
+            if (move_X < 0 && (move_Y > Managers.Field.GetHeight() - 1))
+            {
+                move_X = current_X; move_Y = current_Y;
+            }
+        }
+
     }
 
     public void ChooseLeftOrRight()
@@ -85,7 +124,7 @@ public class MiniMonster_Parent : MonoBehaviour
 
     IEnumerator ActiveDamageField(GameObject go)            //코루틴이 다음과 같이 선언됩니다.
     {
-        Debug.Log("Grid tile Collider Activatied");
+        //Debug.Log("Grid tile Collider Activatied");
         PolygonCollider2D poly = go.GetComponent<PolygonCollider2D>();
         poly.enabled = true;                                //Damage영역 collider 활성화(잠깐)
         yield return new WaitForFixedUpdate();              //yield 반환 라인은 실행이 일시 중지되고 다음 프레임에서 다시 시작되는 지점

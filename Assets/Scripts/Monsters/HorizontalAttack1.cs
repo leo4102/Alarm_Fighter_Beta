@@ -1,9 +1,8 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class HorizonalAttack1 : MiniMonster_Parent
+//left to right straight attack(disappear at the end)
+public class HorizontalAttack1 : MiniMonster_Parent
 {
     private void Start()
     {
@@ -32,7 +31,7 @@ public class HorizonalAttack1 : MiniMonster_Parent
     private void FixedUpdate()
     {
         try
-        {   
+        {
             SpriteRenderer currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = new Color(255f, 255f, 255f, 1);
 
@@ -64,12 +63,12 @@ public class HorizonalAttack1 : MiniMonster_Parent
                 break;
 
             case Define.State.ATTACK:                        //다음 박자에 아래로 이동 밑 공격
-                
+
                 AutoAttack(nextDirection);
                 break;
 
             case Define.State.DIE:
-                
+
                 Die();
                 break;
 
@@ -79,10 +78,10 @@ public class HorizonalAttack1 : MiniMonster_Parent
     protected override void AutoWarningAttack(Define.PlayerMove nextDirection)
     {
         SelectNextDirection();
-        
+
         try
         {
-            SpriteRenderer gridColor = Managers.Field.GetGrid(current_X + 1, current_Y).GetComponent<SpriteRenderer>();
+            SpriteRenderer gridColor = Managers.Field.GetGrid(current_X + a, current_Y + b).GetComponent<SpriteRenderer>();
             gridColor.color = Color.red;
         }
         catch (ArgumentOutOfRangeException)
@@ -110,6 +109,7 @@ public class HorizonalAttack1 : MiniMonster_Parent
     protected override void SelectNextDirection()
     {
         nextDirection = Define.PlayerMove.Right;
+        a = 1; b = 0;
     }
 
     protected override void Die()
@@ -117,12 +117,12 @@ public class HorizonalAttack1 : MiniMonster_Parent
         Destroy(gameObject);
         //Debug.Log("Die 할 GameObject :" + gameObject);
         Managers.Timing.BehaveAction -= AutoBitBehave;
-        Managers.Game.CurrentHMons.Remove(gameObject);
+        Managers.Monster.CurrentHMons.Remove(gameObject);
 
         SpriteRenderer currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
         currentGridColor.color = new Color(255f, 255f, 255f, 1);
     }
-    
 
-   
+
+
 }
