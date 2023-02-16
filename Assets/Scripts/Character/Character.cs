@@ -79,6 +79,10 @@ public class Character : MonoBehaviour
 
     protected void Attack()
     {
+        WeaponInfo wp = GetComponent<WeaponInfo>();
+        if (wp.CurrentWeapon == null)
+            return;
 
+        wp.CurrentWeapon.Attack();
     }
 }

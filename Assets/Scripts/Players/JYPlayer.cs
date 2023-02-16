@@ -30,6 +30,8 @@ public class JYPlayer : Character
 
     }
 
+    
+
     void CheckMove()
     {
         float direct = (transform.position - Managers.Field.GetGrid(move_X, move_Y).transform.position).magnitude;
@@ -44,15 +46,17 @@ public class JYPlayer : Character
 
     void SetDirection(int x)
     {
-        int direct = 0;
+        float direct = 0;
         int width = Managers.Field.GetWidth();
-        int part = width / 3;
-        if (x < part)
-            direct = 1;
-        else if (x >= part * 2)
-            direct = 2;
-        else
-            direct = 0;
+        direct = ((float)x / width) * 2f;
+        Debug.Log($"float :{direct}");
+        //int part = width / 3;
+        //if (x < part)
+        //    direct = 0;
+        //else if (x >= part * 2)
+        //    direct = 2;
+        //else
+        //    direct = 1;
         anim.SetFloat("Idle", direct);
     }
 

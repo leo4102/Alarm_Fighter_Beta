@@ -36,7 +36,7 @@ public class ShadowGenerator : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>().sprite;
         GameObject go = Managers.Resource.Instantiate("Players/Shadow");
         go.transform.position = transform.position;
+        go.transform.localScale = transform.localScale;
         go.GetComponent<SpriteRenderer>().sprite = sprite;
-        Debug.Log($"shadow : {currentTime}");
     }
 }
