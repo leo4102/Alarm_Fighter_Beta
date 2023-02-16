@@ -9,6 +9,16 @@ public class Character : MonoBehaviour
     protected int move_X, move_Y;
     protected float speed;
 
+    protected bool isLeft = false;
+    protected bool isRight = false;
+    protected bool isUp = false;
+    protected bool isDown = false;
+
+    public void IsLeft() { isLeft = true; }
+    public void IsRight() { isRight = true; }
+    public void IsUp() { isUp = true; }
+    public void IsDown() { isDown = true; }
+
     // Charater의 현재 X와 Y Index 반환
     public int GetCharacterInd_X()
     {

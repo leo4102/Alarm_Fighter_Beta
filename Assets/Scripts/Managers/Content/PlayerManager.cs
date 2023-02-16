@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerManager
@@ -26,4 +27,8 @@ public class PlayerManager
     {
         return currentPlayer.GetCharacterInd_Y();
     }
+    public void IsLeft() { currentPlayer.IsLeft(); }
+    public void IsRight() { currentPlayer.IsRight(); }
+    public void IsUp() { currentPlayer.IsUp(); }
+    public void IsDown() { currentPlayer.IsDown(); }
 }
