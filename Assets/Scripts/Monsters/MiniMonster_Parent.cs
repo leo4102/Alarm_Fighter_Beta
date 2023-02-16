@@ -142,4 +142,6 @@ public class MiniMonster_Parent : MonoBehaviour
     protected virtual void AutoAttack(Define.PlayerMove nextDirection) { }
     
     protected virtual void Die() { }
+
+    protected virtual void OnTriggerEnter2D(Collider2D collision) { }
 }

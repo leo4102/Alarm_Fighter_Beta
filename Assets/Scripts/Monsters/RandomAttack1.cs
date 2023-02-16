@@ -6,6 +6,7 @@ public class RandomAttack1 : MiniMonster_Parent
 {
     private void Start()
     {
+        currentHp = maxHp;
         speed = 10f;
         int rand_X = UnityEngine.Random.Range(1, Managers.Field.GetWidth() - 1);
         int rand_Y = UnityEngine.Random.Range(1, Managers.Field.GetHeight());
@@ -40,10 +41,7 @@ public class RandomAttack1 : MiniMonster_Parent
 
                 //move_X = current_X;
                 //move_Y = current_Y;
-            }*/
-
-
-
+            }*
             //-----------------------------------------------------------------------------------
             /*int player_X = Managers.Player.GetCurrentX();
             int player_Y = Managers.Player.GetCurrentY();
@@ -72,7 +70,6 @@ public class RandomAttack1 : MiniMonster_Parent
                 //move_Y = current_Y;
 
                 return;
-               
             }
             //------------------------------------------------------------------------------------
             //만약 움직인다면

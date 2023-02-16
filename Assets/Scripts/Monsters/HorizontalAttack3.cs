@@ -6,6 +6,7 @@ public class HorizontalAttack3 : MiniMonster_Parent
 {
     private void Start()
     {
+        currentHp = maxHp;
         speed = 10f;
         int rand = UnityEngine.Random.Range(0, Managers.Field.GetHeight());    //처음 스폰 위치  결정      
 
@@ -26,8 +27,7 @@ public class HorizontalAttack3 : MiniMonster_Parent
         //소환되는 애니메이션 실행
         Managers.Timing.BehaveAction -= AutoBitBehave;      //VMon1의 비트 마다 실행할 BitBehave 구독
         Managers.Timing.BehaveAction += AutoBitBehave;
-
-
+        
         Debug.Log("start전 현재 선택된 방향:   " + nextDirection + "," + a + "," + b);
 
         SelectNextDirection();
@@ -48,6 +48,8 @@ public class HorizontalAttack3 : MiniMonster_Parent
 
             current_X = move_X;
             current_Y = move_Y;
+
+            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(current_X, current_Y));  //------------------
 
             currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = Color.magenta;
@@ -161,5 +163,15 @@ public class HorizontalAttack3 : MiniMonster_Parent
 
         SpriteRenderer currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
         currentGridColor.color = new Color(255f, 255f, 255f, 1);
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        currentHp -= 1;
+        if (currentHp <= 0)
+        {
+            nextBehavior = Define.State.DIE;
+        }
+
     }
 }

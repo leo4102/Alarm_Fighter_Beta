@@ -8,6 +8,7 @@ public class VerticalAttack1 : MiniMonster_Parent
 {
     private void Start()
     {
+        currentHp = maxHp;
         speed = 10f;
         int rand = UnityEngine.Random.Range(1, Managers.Field.GetWidth() - 1);
 
@@ -58,6 +59,8 @@ public class VerticalAttack1 : MiniMonster_Parent
 
             current_X = move_X;
             current_Y = move_Y;
+            
+            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(current_X, current_Y));  //------------------------
 
             currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = Color.magenta;
@@ -94,7 +97,7 @@ public class VerticalAttack1 : MiniMonster_Parent
         
         mayGo(nextDirection);
       
-        StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));
+        //StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));//-----------------
        
         nextBehavior = Define.State.ATTACKREADY;
     }

@@ -6,9 +6,9 @@ public class HorizontalAttack1 : MiniMonster_Parent
 {
     private void Start()
     {
+        currentHp = maxHp;
         speed = 10f;
         int rand = UnityEngine.Random.Range(1, Managers.Field.GetHeight());    //처음 스폰 위치 결정      
-
 
         transform.position = Managers.Field.GetGrid(0, rand).transform.position;
         current_X = 0;
@@ -41,6 +41,8 @@ public class HorizontalAttack1 : MiniMonster_Parent
 
             current_X = move_X;
             current_Y = move_Y;
+
+            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(current_X, current_Y));//------------------
 
             currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = Color.magenta;
@@ -101,7 +103,7 @@ public class HorizontalAttack1 : MiniMonster_Parent
         //Debug.Log("Move_x,Move_Y:" + move_X + " ," + move_Y);
         //Debug.Log("current_X,current_Y:" + current_X + " ," + current_Y);
 
-        StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));
+        //StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));
 
         nextBehavior = Define.State.ATTACKREADY;
     }
@@ -121,6 +123,16 @@ public class HorizontalAttack1 : MiniMonster_Parent
 
         SpriteRenderer currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
         currentGridColor.color = new Color(255f, 255f, 255f, 1);
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D collision) 
+    {
+        currentHp -= 1;
+        if (currentHp <= 0)
+        {
+            nextBehavior = Define.State.DIE;
+        }
+
     }
 
 

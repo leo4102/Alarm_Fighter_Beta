@@ -4,11 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//left to right random attack
+//moves randomly around the field
 public class RandomAttack2 : MiniMonster_Parent
 {
     private void Start()
     {
+        currentHp = maxHp;
         speed = 10f;
         int rand_X = UnityEngine.Random.Range(1, Managers.Field.GetWidth() - 1);
         int rand_Y = UnityEngine.Random.Range(1, Managers.Field.GetHeight());
@@ -52,6 +53,8 @@ public class RandomAttack2 : MiniMonster_Parent
 
             current_X = move_X;
             current_Y = move_Y;
+
+            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(current_X, current_Y));//-------
 
             currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = Color.magenta;
@@ -101,7 +104,7 @@ public class RandomAttack2 : MiniMonster_Parent
                 }*/
                 SelectNextDirection();
 
-                Debug.Log("RandomAttack2ÀÇ update ½ÇÇàµÊ");
+                //Debug.Log("RandomAttack2ÀÇ update ½ÇÇàµÊ");
                 SpriteRenderer gridColor = Managers.Field.GetGrid(current_X + a, current_Y + b).GetComponent<SpriteRenderer>();
                 gridColor.color = Color.red;
 
@@ -109,7 +112,7 @@ public class RandomAttack2 : MiniMonster_Parent
             }
             catch (ArgumentOutOfRangeException)
             {
-                Debug.Log("RandomAttack2ÀÇ continue °¡ ½ÇÇàµÊ");  
+                //Debug.Log("RandomAttack2ÀÇ continue °¡ ½ÇÇàµÊ");  
                 continue;
             }
         }
@@ -125,7 +128,7 @@ public class RandomAttack2 : MiniMonster_Parent
         //Debug.Log("Move_x, Move_Y:  " + move_X + " ," + move_Y);
         //Debug.Log("current_X,current_Y:" + current_X + " ," + current_Y);
 
-        StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));
+        //StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));
 
         nextBehavior = Define.State.ATTACKREADY;
     }
