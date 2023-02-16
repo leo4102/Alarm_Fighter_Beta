@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    protected Animator anim;
     protected int current_X, current_Y;
     protected int move_X, move_Y;
     protected float speed;
+
+    protected bool isLeft = false;
+    protected bool isRight = false;
+    protected bool isUp = false;
+    protected bool isDown = false;
+
+    public void IsLeft() { isLeft = true; }
+    public void IsRight() { isRight = true; }
+    public void IsUp() { isUp = true; }
+    public void IsDown() { isDown = true; }
 
     // Charater의 현재 X와 Y Index 반환
     public int GetCharacterInd_X()
@@ -20,6 +31,7 @@ public class Character : MonoBehaviour
 
     protected void mayGo(Define.PlayerMove direction)
     {
+
         move_X = current_X;
         move_Y = current_Y;
 
@@ -40,13 +52,21 @@ public class Character : MonoBehaviour
         {
             move_X -= 1;
             if (move_X < 0)
+            {
                 move_X = current_X;
+                return;
+            }
+            anim.SetBool("IsMoveL", true);
         }
         else if (direction == Define.PlayerMove.Right)
         {
             move_X += 1;
             if (move_X > Managers.Field.GetWidth() - 1)
+            {
                 move_X = current_X;
+                return;
+            }
+            anim.SetBool("IsMoveR", true);
         }
     }
     // 원근감을 제대로 내기 위해서는 비율만 바꾸면 됨 (2.11 재윤 추가)
@@ -59,6 +79,10 @@ public class Character : MonoBehaviour
 
     protected void Attack()
     {
+        WeaponInfo wp = GetComponent<WeaponInfo>();
+        if (wp.CurrentWeapon == null)
+            return;
 
+        wp.CurrentWeapon.Attack();
     }
 }

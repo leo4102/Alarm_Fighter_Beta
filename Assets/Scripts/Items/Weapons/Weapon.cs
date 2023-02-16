@@ -11,7 +11,7 @@ public class Weapon
     protected GameObject weaponObject;
     int Damage;
 
-    public void Attack()
+    public virtual void Attack()
     {
         //to do : ¿Ã∆Â∆Æ º“»Ø
     }
