@@ -24,7 +24,7 @@ public class JYPlayer : Character
         else if (isDown && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Down); isDown = false; }
         else if (isRight && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Right); isRight = false; }
 
-        Vector2 checkPoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;
+       /* Vector2 checkPoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;
         if (((move_X != current_X) || (move_Y != current_Y)) && (Physics2D.OverlapCircle(checkPoint, 0.2f)))
         {
             //Debug.Log("Player의 movepoint에 몬스터 존재");
@@ -35,7 +35,7 @@ public class JYPlayer : Character
             move_Y = current_Y;
 
             return;
-        }
+        }*/
 
         this.transform.position = Vector3.MoveTowards(transform.position, Managers.Field.GetGrid(move_X, move_Y).transform.position, Time.deltaTime * speed); //Time.deltaTime * speed
         CheckMove();
