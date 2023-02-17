@@ -56,7 +56,6 @@ public class JYPlayer : Character
             anim.SetBool("IsMoveL", false);
             anim.SetBool("IsMoveR", false);
             SetDirection(move_X);
-
         }
     }
 
