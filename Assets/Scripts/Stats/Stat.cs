@@ -6,4 +6,9 @@ public class Stat : MonoBehaviour
 {
     public float MaxHP;
     public float CurrentHP;
+
+    public void DecreaseCurrnetHP(float amount)
+    {
+        CurrentHP -= amount;
+    }
 }
