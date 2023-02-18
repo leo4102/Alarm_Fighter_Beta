@@ -91,22 +91,22 @@ public class GameScene : BaseScene
 
     private void SpawnPlayerHpBar()
     {
-        //GameObject go = Managers.Resource.Load<GameObject>("Prefabs/UI/PlayerHpBar");
-        //go = Instantiate<GameObject>(go) as GameObject;
-        GameObject go2 = Managers.Resource.Instantiate("Prefabs/UI/PlayerHpBar");
+        GameObject go = Managers.Resource.Load<GameObject>("Prefabs/UI/PlayerHpBar");
+        go = Instantiate<GameObject>(go) as GameObject;
+        //GameObject go2 = Managers.Resource.Instantiate("Prefabs/UI/PlayerHpBar");
     }
 
     private void SpawnMonsterHpBar()
     {
-        //GameObject go = Managers.Resource.Load<GameObject>("Prefabs/UI/MonsterHpBar");
-        //go = Instantiate<GameObject>(go) as GameObject;
-        GameObject go1 = Managers.Resource.Instantiate("Prefabs/UI/MonsterHpBar");
+        GameObject go = Managers.Resource.Load<GameObject>("Prefabs/UI/MonsterHpBar");
+        go = Instantiate<GameObject>(go) as GameObject;
+        //GameObject go1 = Managers.Resource.Instantiate("Prefabs/UI/MonsterHpBar");
     }
     private void SpawnMonsterHpBarMiddle()
     {
-        //GameObject go = Managers.Resource.Load<GameObject>("Prefabs/UI/HpBarMiddle");
-        //go = Instantiate<GameObject>(go) as GameObject;
-        GameObject go1 = Managers.Resource.Instantiate("Prefabs/UI/HpBarMiddle");
+        GameObject go = Managers.Resource.Load<GameObject>("Prefabs/UI/HpBarMiddle");
+        go = Instantiate<GameObject>(go) as GameObject;
+        //GameObject go1 = Managers.Resource.Instantiate("Prefabs/UI/HpBarMiddle");
     }
 
     public void NextMonsterIndex()                          //��� ���� ��
