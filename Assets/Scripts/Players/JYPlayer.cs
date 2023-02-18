@@ -64,7 +64,7 @@ public class JYPlayer : Character
         float direct = 0;
         int width = Managers.Field.GetWidth();
         direct = ((float)x / width) * 2f;
-        Debug.Log($"float :{direct}");
+        //Debug.Log($"float :{direct}");
         //int part = width / 3;
         //if (x < part)
         //    direct = 0;

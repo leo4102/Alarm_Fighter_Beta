@@ -9,8 +9,8 @@ public class MonsterStat : Stat
         MaxHP = 30f;
         CurrentHP = 30f;
 
-        GetComponent<HpBarUpdater>().hpbar.maxValue = MaxHP;
-    }
+        GetComponent<HpBarUpdater>().GetSliderComponent().maxValue = MaxHP;
 
-    
+
+    }
 }

@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 974324915210872943}
   - component: {fileID: 603552206354972385}
   m_Layer: 5
-  m_Name: MonsterHpBar
+  m_Name: MonsterHPbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -9,6 +9,9 @@ public class PlayerStat : Stat
         MaxHP = 10f;
         CurrentHP = 10f;
 
-        GetComponent<HpBarUpdater>().hpbar.maxValue = MaxHP;
+        GetComponent<HpBarUpdater>().GetSliderComponent().maxValue = MaxHP;
+
     }
 }
+//GameObject slider = Util.FindChild(playerHpBar, "Slider");
+//slider.GetComponent<Slider>().maxValue = MaxHP;

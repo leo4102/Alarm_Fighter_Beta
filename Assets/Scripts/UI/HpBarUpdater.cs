@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HpBarUpdater : MonoBehaviour
 {
     [SerializeField]
-    public Slider hpbar;
+    public GameObject hpbar;
 
     Stat stat;
 
@@ -15,9 +15,14 @@ public class HpBarUpdater : MonoBehaviour
         stat = GetComponent<Stat>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        hpbar.value = stat.CurrentHP / stat.MaxHP;
+        GetSliderComponent().value = stat.CurrentHP / stat.MaxHP;
+    }
+
+    public Slider GetSliderComponent()      //makes available to access into slider component directly
+    {
+        GameObject slider = Util.FindChild(hpbar, "Slider");
+        return slider.GetComponent<Slider>();
     }
 }
