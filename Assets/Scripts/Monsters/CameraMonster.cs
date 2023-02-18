@@ -13,13 +13,19 @@ public class CameraMonster : Character
     
     //[SerializeField] List<GameObject> verticalMons = new List<GameObject>();       
     //[SerializeField] GameObject randomMon;                                          //랜덤 공격 몬스터용
-
+    //public Transform CurrentTransform() { return transform; }//sunho 0218
     void Start()
     {
         Managers.Timing.BehaveAction -= BitBehave;      //몬스터의 비트 마다 실행할 BitBehave 구독
         Managers.Timing.BehaveAction += BitBehave;
     }
-
+    //start sunho 0218
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.K))
+            Managers.MonsterAttack.LazerAttack(this.transform, 0);      
+    }
+    //end
     void BitBehave()
     {
         switch (nextBehavior)

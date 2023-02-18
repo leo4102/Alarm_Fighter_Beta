@@ -6,8 +6,7 @@ public class Managers : MonoBehaviour       //@Managers(GameObject)¿¡ »ğÀÔµÊ(½ÃÀ
 {
     static Managers _instance;
     public static Managers Instance { get { Init(); return _instance; } }
-
-    #region Content
+    #region Contents
     BpmManager _bpm = new BpmManager();
     FieldManager _field = new FieldManager();
     GameManagerEx _game = new GameManagerEx();
@@ -15,7 +14,7 @@ public class Managers : MonoBehaviour       //@Managers(GameObject)¿¡ »ğÀÔµÊ(½ÃÀ
     TimingManager _timing = new TimingManager();
     PlayerManager _player = new PlayerManager();
     MonsterManager _monster = new MonsterManager();
-    
+    MonsterAttackManager _monsterAttack = new MonsterAttackManager();
     public static BpmManager Bpm { get { return Instance._bpm; } }
     public static FieldManager Field { get { return Instance._field; } }
     public static GameManagerEx Game { get { return Instance._game; } }
@@ -24,7 +23,7 @@ public class Managers : MonoBehaviour       //@Managers(GameObject)¿¡ »ğÀÔµÊ(½ÃÀ
     public static TimingManager Timing { get { return Instance._timing; } }
     public static PlayerManager Player { get { return Instance._player; } }
     public static MonsterManager Monster { get { return Instance._monster; } }
-
+    public static MonsterAttackManager MonsterAttack { get { return Instance._monsterAttack; } }
     #endregion
 
     #region Core

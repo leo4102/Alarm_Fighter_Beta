@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 901a71ae305daf843b83a65b791fb0fc
+guid: 6d6d1f13a3397c9469480969e12519c4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1000
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,22 +117,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cameraMonster1_0
+      name: "\uD6A8\uACFC2_4"
       rect:
         serializedVersion: 2
-        x: 142
-        y: 604
-        width: 279
-        height: 297
+        x: 360
+        y: 637
+        width: 109
+        height: 82
       alignment: 9
-      pivot: {x: 0.405676, y: 0.31508014}
+      pivot: {x: 0.5000003, y: 0.4573007}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aae6c68f278035e47b1bd54c47a56863
-      internalID: -1900155889
+      spriteID: 39ef0775992d20c49bf9f800a53e04b1
+      internalID: 277579193
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      cameraMonster1_0: -1900155889
+      "\uD6A8\uACFC2_1": -1878723671
+      "\uD6A8\uACFC2_3": -1120687975
+      "\uD6A8\uACFC2_2": -1323404911
+      "\uD6A8\uACFC2_0": 398881055
+      "\uD6A8\uACFC2_4": 277579193
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

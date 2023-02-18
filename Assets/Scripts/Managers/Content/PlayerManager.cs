@@ -11,6 +11,7 @@ public class PlayerManager
     {
         this.currentPlayer = player;
     }
+    public Transform GetCurrentTransform() { return currentPlayer.transform; }
     public float GetCurrentPositionX()
     {
         return currentPlayer.transform.position.x;

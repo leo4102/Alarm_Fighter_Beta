@@ -40,7 +40,7 @@ class Pool
             return;
 
         //poolable을 pool로 옮기고 비활성화
-        poolable.transform.parent = Root;
+        poolable.transform.SetParent(Root);
         poolable.gameObject.SetActive(false);
         poolable.IsUsing = false;
 
@@ -65,9 +65,10 @@ class Pool
 
         //DontDestroyOnLoad 해제용 : DontDestroyOnLoad 산하에 들어가면 명시적으로 나오지않는한 못나옴
         if (parent == null)
-            poolable.transform.parent = Managers.Scene.CurrentScene.transform;
+            poolable.transform.SetParent(Managers.Scene.CurrentScene.transform);// = Managers.Scene.CurrentScene.transform;
+        else
+            poolable.transform.SetParent(parent);
 
-        poolable.transform.parent = parent;
         poolable.IsUsing = true;
 
         return poolable;
@@ -97,7 +98,7 @@ public class PoolManager        //"@Pool_Root" 역할
     {
         Pool pool = new Pool();                     //빈 Pool 생성
         pool.Init(original, count);                 //pool 초기화
-        pool.Root.parent = _root;                   //만든 Pool을  "@Pool_Root" 산하에 위치
+        pool.Root.SetParent(_root);                   //만든 Pool을  "@Pool_Root" 산하에 위치
 
         _poolDict.Add(original.name, pool);         //만든 Pool Dictionary에 추가
     }

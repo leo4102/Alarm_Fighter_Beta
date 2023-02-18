@@ -7,7 +7,7 @@ public class MonsterManager : MonoBehaviour
     public List<GameObject> CurrentVMons = new List<GameObject>();     //현재 필드에 나와있는 세로 공격형 몬스터 수      
     public List<GameObject> CurrentHMons = new List<GameObject>();     //현재 필드에 나와있는 가로 공격형 몬스터 수
     public List<GameObject> CurrentRMons = new List<GameObject>();     //현재 필드에 나와있는 랜덤 공격형 몬스터 수
-
+    
     /*public List<Component> CurrentVMons = new List<GameObject>();
     public List<GameObject> CurrentHMons = new List<GameObject>();
     public List<GameObject> CurrentRMons = new List<GameObject>();*/
