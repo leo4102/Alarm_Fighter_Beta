@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,11 +39,15 @@ public class GameScene : BaseScene
         SponePlayer();
         SponeField();
         SponeMoveButton();
+        SpawnPlayerHpBar();
+        SpawnMonsterHpBar();
+        SpawnMonsterHpBarMiddle();
         Managers.Item.Init();
         Managers.Resource.Instantiate("Items/ItemBoxes/@GridBaseSpawn");
         Managers.Menu.Init();
     }
-    
+
+   
     public void Update()
     {
         Managers.Timing.UpdatePerBit();         //�� ��Ʈ���� ���� �ൿ ����Ʈ
@@ -83,6 +88,27 @@ public class GameScene : BaseScene
         go = Instantiate<GameObject>(go) as GameObject;
 
     }
+
+    private void SpawnPlayerHpBar()
+    {
+        //GameObject go = Managers.Resource.Load<GameObject>("Prefabs/UI/PlayerHpBar");
+        //go = Instantiate<GameObject>(go) as GameObject;
+        GameObject go2 = Managers.Resource.Instantiate("Prefabs/UI/PlayerHpBar");
+    }
+
+    private void SpawnMonsterHpBar()
+    {
+        //GameObject go = Managers.Resource.Load<GameObject>("Prefabs/UI/MonsterHpBar");
+        //go = Instantiate<GameObject>(go) as GameObject;
+        GameObject go1 = Managers.Resource.Instantiate("Prefabs/UI/MonsterHpBar");
+    }
+    private void SpawnMonsterHpBarMiddle()
+    {
+        //GameObject go = Managers.Resource.Load<GameObject>("Prefabs/UI/HpBarMiddle");
+        //go = Instantiate<GameObject>(go) as GameObject;
+        GameObject go1 = Managers.Resource.Instantiate("Prefabs/UI/HpBarMiddle");
+    }
+
     public void NextMonsterIndex()                          //��� ���� ��
     {
         if (monsterIndex < maxMonsterNum - 1)
