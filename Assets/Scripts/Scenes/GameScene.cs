@@ -52,6 +52,7 @@ public class GameScene : BaseScene
     {
         if (monsters.Count == 0) return;
         GameObject go = Instantiate(monsters[monsterIndex]) as GameObject;
+        Managers.Monster.BossMonster = go;
     }
     private void SponeBackGround()              //
     {

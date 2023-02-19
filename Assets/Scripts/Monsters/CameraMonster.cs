@@ -32,12 +32,17 @@ public class CameraMonster : Character
         if (Input.GetKey(KeyCode.J))
         {
             Managers.MonsterAttack.FlashAttack();
+
         }
-        if(Input.GetKey(KeyCode.L)) 
+        if (Input.GetKey(KeyCode.P))
+        {
+            Managers.MonsterAttack.LazerMoveAttack(this.transform);
+
+        }
+        if (Input.GetKey(KeyCode.L)) 
         {
             Managers.MonsterAttack.LazerAttack(this.transform,5,1);
             Managers.MonsterAttack.LazerAttack(this.transform, 6, 1);
-
         }
     }
     //end
