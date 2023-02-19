@@ -29,6 +29,16 @@ public class CameraMonster : Character
                 Managers.MonsterAttack.LazerAttack(this.transform, i, 1);
             }
         }
+        if (Input.GetKey(KeyCode.J))
+        {
+            Managers.MonsterAttack.FlashAttack();
+        }
+        if(Input.GetKey(KeyCode.L)) 
+        {
+            Managers.MonsterAttack.LazerAttack(this.transform,5,1);
+            Managers.MonsterAttack.LazerAttack(this.transform, 6, 1);
+
+        }
     }
     //end
     void BitBehave()
