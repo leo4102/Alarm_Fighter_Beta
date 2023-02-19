@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5991550922272484105}
   - component: {fileID: 6706920217784215710}
+  - component: {fileID: 4017860476613506590}
+  - component: {fileID: -1079769660986475595}
   m_Layer: 0
   m_Name: Lazer_Boom
   m_TagString: Untagged
@@ -25,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6068546827114089958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 5.584663, y: -2.5458107, z: 1.1026503}
+  m_LocalScale: {x: 1, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,3 +86,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4017860476613506590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6068546827114089958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891c32d382954884e9d45a86edeb1fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1079769660986475595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6068546827114089958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 531c2acc3d168f84dad867860e0622e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsUsing: 1

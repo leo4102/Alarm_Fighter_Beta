@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lazer : MonoBehaviour 
+public class Lazer_Boom : MonoBehaviour
 {
     SpriteRenderer rend;
 

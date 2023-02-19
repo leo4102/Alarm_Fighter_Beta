@@ -22,8 +22,13 @@ public class CameraMonster : Character
     //start sunho 0218
     private void Update()
     {
-        if(Input.GetKey(KeyCode.K))
-            Managers.MonsterAttack.LazerAttack(this.transform, 0);      
+        if (Input.GetKey(KeyCode.K))
+        {
+            for(int i=0;i<Managers.Field.GetWidth();i++)
+            {
+                Managers.MonsterAttack.LazerAttack(this.transform, i, 1);
+            }
+        }
     }
     //end
     void BitBehave()
