@@ -55,7 +55,7 @@ public class RandomAttack1 : MiniMonster_Parent
             }*/
             //------------------------------------------------------------------------------------
             Vector3 checkPoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;     //movepoint 과 동일한 역할
-            if (((move_X != current_X) || (move_Y != current_Y)) && (Physics2D.OverlapCircle(checkPoint, 0.2f)))
+            if (((move_X != current_X) || (move_Y != current_Y))&&(Physics2D.OverlapCircle(checkPoint, 0.2f)))  //  
             {
                 //Debug.Log("Movepoint에 플레이어 있음");
 
@@ -80,14 +80,20 @@ public class RandomAttack1 : MiniMonster_Parent
             //Attack서 변경된 자리로 객체 자리 이동
             Vector3 movePoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;      //여기서 에러 발생 가능
             transform.position = Vector3.MoveTowards(transform.position, movePoint, Time.deltaTime * speed);
-
+            
+            //-----------------------------------------------------------
+            if (current_X != move_X || current_Y != move_Y)
+            {
+                StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));//----------
+            }
+            //------------------------------------------------------------
 
             //객체가 움직였으므로 현재 Grid도 변경
             current_X = move_X;
             current_Y = move_Y;
            
             //현재 grid의 collider활성화
-            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(current_X, current_Y));      //-------------
+            //StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(current_X, current_Y));      //-------------
 
             //변경된 자리 보라색화
             currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
@@ -206,6 +212,15 @@ public class RandomAttack1 : MiniMonster_Parent
         currentGridColor.color = new Color(255f, 255f, 255f, 1);
     }
 
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        currentHp -= 1;
+        if (currentHp <= 0)
+        {
+            nextBehavior = Define.State.DIE;
+        }
+
+    }
 
 
 

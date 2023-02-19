@@ -49,10 +49,15 @@ public class HorizontalAttack4 : MiniMonster_Parent
             Vector3 movePoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;
             transform.position = Vector3.MoveTowards(transform.position, movePoint, Time.deltaTime * speed);
 
+            if (current_X != move_X || current_Y != move_Y)
+            {
+                Debug.Log("Move_x, Move_Y:  " + move_X + " ," + move_Y);
+                Debug.Log("current_X,current_Y:" + current_X + " ," + current_Y);
+                StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));//----------
+            }
+
             current_X = move_X;
             current_Y = move_Y;
-
-            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(current_X, current_Y));//----------
 
             currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = Color.magenta;
@@ -211,7 +216,11 @@ public class HorizontalAttack4 : MiniMonster_Parent
         currentHp -= 1;
         if (currentHp <= 0)
         {
-            nextBehavior = Define.State.DIE;
+            //nextBehavior = Define.State.DIE;
+            Debug.Log("penguin has died contract with collider");
+            
+            Die();//그냥 Die 인듯
+            
         }
 
     }

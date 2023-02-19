@@ -46,7 +46,7 @@ public class HorizontalAttack2 : MiniMonster_Parent
             StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(current_X, current_Y));//-----------------
 
             currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
-            currentGridColor.color = Color.magenta;
+            currentGridColor.color = Color.magenta; 
 
         }
         catch (ArgumentOutOfRangeException)

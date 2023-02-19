@@ -74,5 +74,5 @@ public class JYPlayer : Character
         //    direct = 1;
         anim.SetFloat("Idle", direct);
     }
-    
+
 }

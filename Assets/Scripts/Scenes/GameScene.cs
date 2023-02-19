@@ -42,9 +42,9 @@ public class GameScene : BaseScene
         SpawnPlayerHpBar();
         SpawnMonsterHpBar();
         SpawnHpBarMiddle();     
-        Managers.Item.Init();
-        Managers.Resource.Instantiate("Items/ItemBoxes/@GridBaseSpawn");
-        Managers.Menu.Init();
+        //Managers.Item.Init();
+        //Managers.Resource.Instantiate("Items/ItemBoxes/@GridBaseSpawn");
+        //Managers.Menu.Init();
     }
 
    
