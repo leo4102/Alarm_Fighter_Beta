@@ -13,15 +13,17 @@ public class SwipePlayer : Character
         current_Y = 1;
         move_X = current_X;
         move_Y = current_Y;
-        speed = 10f;
+        speed = 100f;
         this.transform.position = Managers.Field.GetGrid(current_X, current_Y).transform.position;
 
         Managers.Field.ScaleByRatio(gameObject, current_X, current_Y);
         anim = GetComponent<Animator>();
 
+        //makes more harder to move(strict)
+        //Managers.Timing.BehaveAction -= ResetMousePosition;    
+        //Managers.Timing.BehaveAction += ResetMousePosition;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && Managers.Timing.CheckTiming())
@@ -29,7 +31,7 @@ public class SwipePlayer : Character
             startPos = Input.mousePosition;
         }
         //else if (Input.GetMouseButtonUp(0) && Managers.Timing.CheckTiming())
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0) && startPos != new Vector2(0, 0))        //if if(block) does not run else if should not run too
         {
             endPos = Input.mousePosition;
             toward = (endPos - startPos);
@@ -54,8 +56,8 @@ public class SwipePlayer : Character
                 mayGo(Define.PlayerMove.Left);
             }
 
-            Debug.Log("current_X : " + current_X + ",    current_Y : " + current_Y);
-            Debug.Log("move_X : " + move_X + ",    move_Y : " + move_Y);
+            //Debug.Log("current_X : " + current_X + ",    current_Y : " + current_Y);
+            //Debug.Log("move_X : " + move_X + ",    move_Y : " + move_Y);
 
             this.transform.position = Vector3.MoveTowards(transform.position, Managers.Field.GetGrid(move_X, move_Y).transform.position, Time.deltaTime * speed); //Time.deltaTime * speed
             CheckMove();
@@ -64,56 +66,17 @@ public class SwipePlayer : Character
 
             Managers.Field.ScaleByRatio(gameObject, current_X, current_Y);
 
-            /*else if (Input.GetMouseButtonUp(0))
-            {
-                Vector2 endPos = Input.mousePosition;
-                float swipeLength = endPos.x - startPos.x;
-
-                this.speed = swipeLength / 500.0f;
-
-                GetComponent<AudioSource>().Play();
-            }
-
-
-
-            transform.Translate(this.speed, 0, 0);
-            this.speed *= 0.98f;*/
-
-
+            ResetMousePosition();
         }
     }
-    //---------------------------------------------------------------
-    /*void Update()
+
+    public void ResetMousePosition()
     {
-        if (isUp && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Up); isUp = false; }
-        else if (isLeft && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Left); isLeft = false; }
-        else if (isDown && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Down); isDown = false; }
-        else if (isRight && Managers.Timing.CheckTiming()) { mayGo(Define.PlayerMove.Right); isRight = false; }
-
-        *//*Vector2 checkPoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;
-        if (((move_X != current_X) || (move_Y != current_Y)) && (Physics2D.OverlapCircle(checkPoint, 0.2f)))
-        {
-            //Debug.Log("Player의 movepoint에 몬스터 존재");
-            //SpriteRenderer moveGridColor = Managers.Field.GetGrid(move_X, move_Y).GetComponent<SpriteRenderer>();
-            //moveGridColor.color = new Color(255f, 255f, 255f, 1);
-
-            move_X = current_X;
-            move_Y = current_Y;
-
-            return;
-        }*//*
-
-        this.transform.position = Vector3.MoveTowards(transform.position, Managers.Field.GetGrid(move_X, move_Y).transform.position, Time.deltaTime * speed); //Time.deltaTime * speed
-
-        current_X = move_X;
-        current_Y = move_Y;
-
-        Managers.Field.ScaleByRatio(gameObject, current_X, current_Y);
-
-    }*/
-
-
-
+            startPos = new Vector2(0, 0);
+            endPos = new Vector2(0, 0);
+            toward = new Vector2(0, 0);
+    }
+ 
     void CheckMove()
     {
         float direct = (transform.position - Managers.Field.GetGrid(move_X, move_Y).transform.position).magnitude;
@@ -131,7 +94,7 @@ public class SwipePlayer : Character
         float direct = 0;
         int width = Managers.Field.GetWidth();
         direct = ((float)x / width) * 2f;
-        Debug.Log($"float :{direct}");
+        //Debug.Log($"float :{direct}");
         //int part = width / 3;
         //if (x < part)
         //    direct = 0;

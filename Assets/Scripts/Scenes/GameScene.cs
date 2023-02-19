@@ -38,7 +38,7 @@ public class GameScene : BaseScene
         SponeNoteBar();
         SponePlayer();
         SponeField();
-        SponeMoveButton();
+        //SponeMoveButton();
         SpawnPlayerHpBar();
         SpawnMonsterHpBar();
         SpawnHpBarMiddle();     

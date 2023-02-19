@@ -41,7 +41,7 @@ public class CameraMonster : Character
                 //랜덤 공격 몬스터 스폰
                 if (Managers.Monster.CurrentRMons.Count < 3) //필드에 1개 이상 만들어지지 않음
                 {
-                    SpawnRandomMonster( );
+                    //SpawnRandomMonster( );
                 }
 
                 nextBehavior = Define.State.NOTSPAWN;

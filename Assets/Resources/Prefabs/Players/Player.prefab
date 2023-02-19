@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 6693234547126659651}
   - component: {fileID: 6693234547126659676}
   - component: {fileID: 6693234547126659677}
-  - component: {fileID: 6693234547126659678}
   - component: {fileID: 6693234547126659679}
   - component: {fileID: 7390443012547656035}
   - component: {fileID: -9016955881074290173}
   - component: {fileID: 5691179649592530957}
+  - component: {fileID: 3191714154968561187}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -129,18 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e127b2b4cab683546a4993ee84efcffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6693234547126659678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6693234547126659672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31e59fedbd727af47bb69720cfcbbb6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &6693234547126659679
 Animator:
   serializedVersion: 5
@@ -201,4 +189,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpbar: {fileID: 7310983736707270645, guid: 1d43108e06363a54aaa033aa5e720723, type: 3}
-  go: {fileID: 0}
+--- !u!114 &3191714154968561187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6693234547126659672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6ad78b3e693ff4ea1271e623e6b9eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
