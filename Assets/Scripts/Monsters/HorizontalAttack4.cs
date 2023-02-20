@@ -9,7 +9,7 @@ public class HorizontalAttack4 : MiniMonster_Parent
     private void Start()
     {
         currentHp = maxHp;
-        speed = 500f;
+        speed = 10f;
         int rand = UnityEngine.Random.Range(0, Managers.Field.GetHeight());    //처음 스폰 위치  결정      
 
 

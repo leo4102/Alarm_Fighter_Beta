@@ -35,7 +35,7 @@ public class CameraMonster : Character
                 //가로 공격 몬스터 스폰
                 if (Managers.Monster.CurrentHMons.Count < 1) //필드에 1개 이상 만들어지지 않음
                 {
-                    //SpawnHorizontalMonster();
+                    SpawnHorizontalMonster();
                 }
 
                 //랜덤 공격 몬스터 스폰
