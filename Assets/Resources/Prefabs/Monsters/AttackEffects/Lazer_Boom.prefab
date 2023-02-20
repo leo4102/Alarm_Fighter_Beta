@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5991550922272484105}
   - component: {fileID: 6706920217784215710}
   - component: {fileID: 4017860476613506590}
-  - component: {fileID: -1079769660986475595}
   m_Layer: 0
   m_Name: Lazer_Boom
   m_TagString: Untagged
@@ -98,16 +97,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891c32d382954884e9d45a86edeb1fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-1079769660986475595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6068546827114089958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 531c2acc3d168f84dad867860e0622e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsUsing: 1

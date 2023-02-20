@@ -33,10 +33,15 @@ public class MonsterAttackManager
     }
     public void SetBasicScale(GameObject go)        //Change private to public
     {
+        //Transform parent = go.transform.parent;//==-----------------
+        //go.transform.parent = null;//==---------------------------
+        
         float x = 10.0f;
         float y = go.transform.localScale.y;
         float z = go.transform.localScale.z;
         go.transform.localScale = new Vector3(x,y,z);
+
+        //go.transform.parent = parent;//==----------------------------
     }
     public Transform SetTarget(int x, int y)        //Change private to public
     {
@@ -44,32 +49,31 @@ public class MonsterAttackManager
     }
     private void UpdateScale(GameObject go, Vector3 vector)
     {
-        //Transform parent = go.transform.parent;//==
-        //go.transform.parent = null;//==
+        //Transform parent = go.transform.parent;//==---------------------
+        //go.transform.parent = null;//==--------------------------------
         
         float vectorX = go.transform.localScale.x;
         float vectorY = -vector.magnitude;
         float vectorZ = vector.z;
         go.transform.localScale = new Vector3(vectorX, vectorY, vectorZ);
 
-        //go.transform.parent = parent;//==
+        //go.transform.parent = parent;//==----------------------------
     }
     public void SetRotation(GameObject go,Transform transform_my,Transform transform_target)    //Change private to public
     {
         Vector3 myPos = transform_my.position;
-        Vector3 targetPos = transform_target.position;  
+        Vector3 targetPos = transform_target.position;
         targetPos.z = myPos.z;
+        
+        Debug.Log("mypos: " + myPos);
+        Debug.Log("targetPos: " + targetPos);
         
         Vector3 vectorToTarget = targetPos - myPos;
         UpdateScale(go,vectorToTarget);
 
-        //Transform parent = go.transform.parent;//==
-        //go.transform.parent = null;//==
-        
         Quaternion targetRotation = Quaternion.LookRotation(forward: Vector3.forward, upwards: vectorToTarget);
         transform_my.rotation = targetRotation;
 
-        //go.transform.parent = parent;//==
 
         //transform_my.rotation = Quaternion.RotateTowards(transform_my.rotation, targetRotation, 100 * Time.deltaTime);
     }
@@ -89,9 +93,13 @@ public class MonsterAttackManager
         GameObject go = Managers.Resource.Instantiate("Monsters/AttackEffects/Lazer");
         GameObject effect = Managers.Resource.Instantiate("Monsters/AttackEffects/Lazer_Boom");
 
-        go.transform.SetParent(effect.transform);
+        GameObject lazerMoveAttack = new GameObject("LazerMoveAttack");
+        go.transform.SetParent(lazerMoveAttack.transform);
+        effect.transform.SetParent(lazerMoveAttack.transform);
+
+        //go.transform.SetParent(effect.transform);
         //effect.transform.SetParent(go.transform);
-        
+
         go.GetComponent<Lazer>().enabled = false;
         effect.GetComponent<Lazer_Boom>().enabled = false;
         
