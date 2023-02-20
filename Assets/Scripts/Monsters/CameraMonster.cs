@@ -22,24 +22,24 @@ public class CameraMonster : Character
     //start sunho 0218
     private void Update()
     {
-        if (Input.GetKey(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             for(int i=0;i<Managers.Field.GetWidth();i++)
             {
                 Managers.MonsterAttack.LazerAttack(this.transform, i, 1);
             }
         }
-        if (Input.GetKey(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             Managers.MonsterAttack.FlashAttack();
 
         }
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             Managers.MonsterAttack.LazerMoveAttack(this.transform);
 
         }
-        if (Input.GetKey(KeyCode.L)) 
+        if (Input.GetKeyDown(KeyCode.L)) 
         {
             Managers.MonsterAttack.LazerAttack(this.transform,5,1);
             Managers.MonsterAttack.LazerAttack(this.transform, 6, 1);

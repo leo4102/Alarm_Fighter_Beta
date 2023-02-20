@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LazerMoveAttack2 : MonoBehaviour      
+public class LazerMove : MonoBehaviour      
 {
     Transform effect;      
     Transform transform_my;
@@ -11,9 +11,6 @@ public class LazerMoveAttack2 : MonoBehaviour
 
     private void Start()
     {
-        //effect = transform.parent;
-        //effect = transform.GetChild(0);
-        //GameObject lazerMoveAttack = transform.root.gameObject;
         GameObject effectObject = Util.FindChild(transform.root.gameObject, "Lazer_Boom");
         effect = effectObject.transform;
         Managers.MonsterAttack.SetBasicScale(gameObject);

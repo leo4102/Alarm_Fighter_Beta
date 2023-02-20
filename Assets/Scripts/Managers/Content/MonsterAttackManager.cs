@@ -22,6 +22,9 @@ public class MonsterAttackManager
         GameObject go = Managers.Resource.Load<GameObject>("Prefabs/Monsters/AttackEffects/Lazer");
         GameObject effect = Managers.Resource.Load<GameObject>("Prefabs/Monsters/AttackEffects/Lazer_Boom");
 
+        go.AddComponent<Lazer>();
+        effect.AddComponent<Lazer_Boom>();
+        
         go.transform.position = transform.position;
         SetBasicScale(go);
         Transform transform_my = go.transform;
@@ -32,16 +35,11 @@ public class MonsterAttackManager
         go = Managers.Resource.Instantiate("Monsters/AttackEffects/Lazer_Boom");
     }
     public void SetBasicScale(GameObject go)        //Change private to public
-    {
-        //Transform parent = go.transform.parent;//==-----------------
-        //go.transform.parent = null;//==---------------------------
-        
+    { 
         float x = 10.0f;
         float y = go.transform.localScale.y;
         float z = go.transform.localScale.z;
-        go.transform.localScale = new Vector3(x,y,z);
-
-        //go.transform.parent = parent;//==----------------------------
+        go.transform.localScale = new Vector3(x, y, z);
     }
     public Transform SetTarget(int x, int y)        //Change private to public
     {
@@ -49,15 +47,10 @@ public class MonsterAttackManager
     }
     private void UpdateScale(GameObject go, Vector3 vector)
     {
-        //Transform parent = go.transform.parent;//==---------------------
-        //go.transform.parent = null;//==--------------------------------
-        
         float vectorX = go.transform.localScale.x;
         float vectorY = -vector.magnitude;
         float vectorZ = vector.z;
         go.transform.localScale = new Vector3(vectorX, vectorY, vectorZ);
-
-        //go.transform.parent = parent;//==----------------------------
     }
     public void SetRotation(GameObject go,Transform transform_my,Transform transform_target)    //Change private to public
     {
@@ -96,22 +89,9 @@ public class MonsterAttackManager
         GameObject lazerMoveAttack = new GameObject("LazerMoveAttack");
         go.transform.SetParent(lazerMoveAttack.transform);
         effect.transform.SetParent(lazerMoveAttack.transform);
-
-        //go.transform.SetParent(effect.transform);
-        //effect.transform.SetParent(go.transform);
-
-        go.GetComponent<Lazer>().enabled = false;
-        effect.GetComponent<Lazer_Boom>().enabled = false;
         
-        go.AddComponent<LazerMoveAttack2>();
+        go.AddComponent<LazerMove>();
         effect.AddComponent<HorizontalAttack1>(); 
-
-        /*go.transform.position = transform.position;
-        SetBasicScale(go);
-        Transform transform_my = go.transform;
-        Transform transform_target = SetTarget(x, y);
-        effect.transform.position = SetEffect(x, y);
-        SetRotation(go, transform_my, transform_target);*/
     }
 
     #endregion
