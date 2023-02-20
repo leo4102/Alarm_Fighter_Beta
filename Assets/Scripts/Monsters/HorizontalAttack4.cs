@@ -9,7 +9,7 @@ public class HorizontalAttack4 : MiniMonster_Parent
     private void Start()
     {
         currentHp = maxHp;
-        speed = 10f;
+        speed = 500f;
         int rand = UnityEngine.Random.Range(0, Managers.Field.GetHeight());    //처음 스폰 위치  결정      
 
 
@@ -19,7 +19,7 @@ public class HorizontalAttack4 : MiniMonster_Parent
 
         move_X = 0;
         move_Y = rand;
-
+            
         //Debug.Log("Start :  Move_x,Move_Y:" + move_X + " ," + move_Y);
         //Debug.Log("Start : current_X,current_Y:" + current_X + " ," + current_Y);
 
@@ -51,8 +51,8 @@ public class HorizontalAttack4 : MiniMonster_Parent
 
             if (current_X != move_X || current_Y != move_Y)
             {
-                Debug.Log("Move_x, Move_Y:  " + move_X + " ," + move_Y);
-                Debug.Log("current_X,current_Y:" + current_X + " ," + current_Y);
+                //Debug.Log("Move_x, Move_Y:  " + move_X + " ," + move_Y);
+                //Debug.Log("current_X,current_Y:" + current_X + " ," + current_Y);
                 StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));//----------
             }
 
@@ -217,7 +217,7 @@ public class HorizontalAttack4 : MiniMonster_Parent
         if (currentHp <= 0)
         {
             //nextBehavior = Define.State.DIE;
-            Debug.Log("penguin has died contract with collider");
+            //Debug.Log("penguin has died contract with collider");
             
             Die();//그냥 Die 인듯
             

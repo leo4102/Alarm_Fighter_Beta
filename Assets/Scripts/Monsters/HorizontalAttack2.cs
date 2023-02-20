@@ -18,8 +18,8 @@ public class HorizontalAttack2 : MiniMonster_Parent
         move_X = Managers.Field.GetWidth() - 1;
         move_Y = rand;
 
-        Debug.Log("Start :  Move_x,Move_Y:" + move_X + " ," + move_Y);
-        Debug.Log("Start : current_X,current_Y:" + current_X + " ," + current_Y);
+        //Debug.Log("Start :  Move_x,Move_Y:" + move_X + " ," + move_Y);
+        //Debug.Log("Start : current_X,current_Y:" + current_X + " ," + current_Y);
 
         SpriteRenderer currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
         currentGridColor.color = Color.magenta;
@@ -40,10 +40,10 @@ public class HorizontalAttack2 : MiniMonster_Parent
             Vector3 movePoint = Managers.Field.GetGrid(move_X, move_Y).transform.position;
             transform.position = Vector3.MoveTowards(transform.position, movePoint, Time.deltaTime * speed);
 
+            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));//-----------------
+            
             current_X = move_X;
             current_Y = move_Y;
-
-            StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(current_X, current_Y));//-----------------
 
             currentGridColor = Managers.Field.GetGrid(current_X, current_Y).GetComponent<SpriteRenderer>();
             currentGridColor.color = Color.magenta; 
@@ -82,7 +82,7 @@ public class HorizontalAttack2 : MiniMonster_Parent
     {
         SelectNextDirection();
 
-        Debug.Log("******current_X,current_Y:" + current_X + " ," + current_Y);
+        //Debug.Log("******current_X,current_Y:" + current_X + " ," + current_Y);
         try
         {
             SpriteRenderer gridColor = Managers.Field.GetGrid(current_X + a, current_Y + b).GetComponent<SpriteRenderer>();
@@ -90,13 +90,13 @@ public class HorizontalAttack2 : MiniMonster_Parent
         }
         catch (ArgumentOutOfRangeException)
         {
-            Debug.Log("LL shoud die ArgumentOutOfRangeException");
+            //Debug.Log("LL shoud die ArgumentOutOfRangeException");
             nextBehavior = Define.State.DIE;
             return;
         }
         catch (NullReferenceException)
         {
-            Debug.Log("LL shoud die NullReferenceException");
+            //Debug.Log("LL shoud die NullReferenceException");
             nextBehavior = Define.State.DIE;
             return;
         }
@@ -107,8 +107,8 @@ public class HorizontalAttack2 : MiniMonster_Parent
     {
         mayGo(nextDirection);
 
-        Debug.Log("Move_x,Move_Y:" + move_X + " ," + move_Y);
-        Debug.Log("current_X,current_Y:" + current_X + " ," + current_Y);
+        //Debug.Log("Move_x,Move_Y:" + move_X + " ," + move_Y);
+        //Debug.Log("current_X,current_Y:" + current_X + " ," + current_Y);
 
         StartCoroutine("ActiveDamageField", Managers.Field.GetGrid(move_X, move_Y));
 
